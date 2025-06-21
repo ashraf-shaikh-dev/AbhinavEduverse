@@ -1,0 +1,11 @@
+package com.abhinav.eduverse.dto;
+
+import com.abhinav.eduverse.model.Role;
+
+public class UserDTO {
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String password;
+	private Role role; // It can be USER, TEACHER or ADMIN
+}
