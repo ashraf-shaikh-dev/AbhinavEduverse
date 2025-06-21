@@ -1,5 +1,0 @@
-package com.abhinav.eduverse.repository;
-
-public interface ModuleRepository {
-
-}
