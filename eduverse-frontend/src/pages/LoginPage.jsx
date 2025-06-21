@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // To redirect after login
+import { useNavigate } from 'react-router-dom';
 import '../styles/global.css';
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
-    email: '', password: ''
+    email: '',
+    password: ''
   });
 
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Handle form field updates
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,41 +20,50 @@ export default function LoginPage() {
     });
   };
 
-  // Handle form submit
+  // Handle login form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
     try {
-      // Send POST request to backend
       const res = await axios.post('http://localhost:8080/api/users/login', formData);
       const user = res.data;
 
-      alert('Login successful!');
-
-      // Store user info in localStorage (simulate session)
+      // Save user to localStorage
       localStorage.setItem('user', JSON.stringify(user));
 
-      // Redirect to dashboard based on role
+      // Redirect based on role
       if (user.role === 'TEACHER') {
         navigate('/teacher/dashboard');
       } else {
         navigate('/student/dashboard');
       }
     } catch (err) {
-      alert('Login failed!');
       console.error('Login error:', err);
+
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else {
+        setError('Login failed. Please check your credentials.');
+      }
     }
   };
 
   return (
     <div className="container">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+
+      {error && <p className="error-text" role="alert">{error}</p>}
+
+      <form onSubmit={handleSubmit} noValidate>
         <input
           name="email"
           type="email"
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
+          required
+          aria-label="Email"
         />
         <input
           name="password"
@@ -60,6 +71,8 @@ export default function LoginPage() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
+          required
+          aria-label="Password"
         />
         <button type="submit">Login</button>
       </form>

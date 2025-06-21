@@ -1,0 +1,90 @@
+/* Container for the dashboard content - centers and limits width */
+.dashboard-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #34495e; /* Dark slate color for text */
+}
+
+/* Main heading styling */
+.dashboard-title {
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+/* Subtitle/welcome message */
+.dashboard-welcome {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Style for loading indicator */
+.loading-text {
+  font-style: italic;
+}
+
+/* Error message styling */
+.error-text {
+  color: red;
+  font-weight: 600;
+}
+
+/* Message shown when no courses are enrolled */
+.no-courses-text {
+  font-style: italic;
+  color: #7f8c8d;
+}
+
+/* Grid container for course cards with responsive columns */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Individual course card */
+.course-card {
+  background-color: #ecf0f1; /* Light grey background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow */
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Course title styling */
+.course-title {
+  margin: 0 0 10px 0;
+  color: #34495e;
+}
+
+/* Course description styling */
+.course-description {
+  flex-grow: 1;
+  margin-bottom: 12px;
+}
+
+/* Progress text styling */
+.course-progress {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Continue course button styling */
+.continue-btn {
+  padding: 8px 12px;
+  background-color: #2980b9; /* Blue color */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for button */
+.continue-btn:hover {
+  background-color: #1c5980; /* Darker blue on hover */
+}

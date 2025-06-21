@@ -1,54 +1,66 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // For making API calls to the Spring Boot backend
-import '../styles/global.css'; // Import your CSS styles
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // For redirecting after signup
+import '../styles/global.css';
 
 export default function SignupPage() {
-  // useState hook to manage form input values
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
-    role: 'STUDENT' // Default role
+    role: 'STUDENT',
   });
 
-  // This function updates form state on input change
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value // Dynamically update the field
+      [e.target.name]: e.target.value,
     });
   };
 
-  // This function handles form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
+    setError(''); // Clear previous error
     try {
-      // Send POST request to backend signup API
       await axios.post('http://localhost:8080/api/users/signup', formData);
       alert('Signup successful!');
+      navigate('/login'); // Redirect to login page after success
     } catch (err) {
-      alert('Signup failed!');
       console.error('Signup error:', err);
+      // Show backend error message if exists, else show generic message
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else {
+        setError('Signup failed. Please try again.');
+      }
     }
   };
 
   return (
     <div className="container">
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Input fields for user details */}
+      {error && <p className="error-text" role="alert">{error}</p>} {/* Error message */}
+
+      <form onSubmit={handleSubmit} noValidate>
         <input
           name="firstName"
           placeholder="First Name"
           value={formData.firstName}
           onChange={handleChange}
+          required
+          aria-label="First Name"
         />
         <input
           name="lastName"
           placeholder="Last Name"
           value={formData.lastName}
           onChange={handleChange}
+          required
+          aria-label="Last Name"
         />
         <input
           name="email"
@@ -56,6 +68,8 @@ export default function SignupPage() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
+          required
+          aria-label="Email"
         />
         <input
           name="password"
@@ -63,19 +77,19 @@ export default function SignupPage() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
+          required
+          aria-label="Password"
         />
-        
-        {/* Role selector dropdown */}
         <select
           name="role"
           value={formData.role}
           onChange={handleChange}
+          aria-label="Role"
         >
           <option value="STUDENT">Student</option>
           <option value="TEACHER">Teacher</option>
         </select>
 
-        {/* Submit button */}
         <button type="submit">Sign Up</button>
       </form>
     </div>
