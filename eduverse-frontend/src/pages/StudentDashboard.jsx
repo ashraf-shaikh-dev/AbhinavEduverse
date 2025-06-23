@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';  // For logout redirect
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import '../styles/StudentDashboard.css';
 
-/**
- * StudentDashboard component
- * Shows the list of courses a student is enrolled in along with progress info.
- */
 export default function StudentDashboard() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('user'));
 
-  // Fetch courses on mount
   useEffect(() => {
+    if (!user || user.role !== 'STUDENT') {
+      navigate('/login');
+      return;
+    }
+
     const fetchCourses = async () => {
       try {
         const res = await axios.get('http://localhost:8080/api/courses/all');
@@ -29,47 +31,59 @@ export default function StudentDashboard() {
     };
 
     fetchCourses();
-  }, []);
+  }, [user, navigate]);
 
-  // Handle logout: clear session and redirect to login
   const handleLogout = () => {
     localStorage.removeItem('user');
-    navigate('/login');
+    navigate('/');
   };
 
-  // Placeholder for continuing a course
   const handleContinueCourse = (courseId) => {
-    // TODO: Navigate to course detail page or player
     alert(`Continue course with id: ${courseId}`);
   };
 
   return (
-    <div className="dashboard-container">
-      <header className="dashboard-header">
-        <h1 className="dashboard-title">Student Dashboard</h1>
+    <div className="student-dashboard">
+      <div className="dashboard-header">
+        <motion.h1
+          className="dashboard-title"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Welcome, {user?.firstName || 'Student'} 👋
+        </motion.h1>
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
-      </header>
+      </div>
 
-      <p className="dashboard-welcome">
-        Welcome back! Here are your current courses and progress:
-      </p>
+      <p className="dashboard-subtitle">Here are your enrolled courses and progress:</p>
 
       {loading && <p className="loading-text">Loading courses...</p>}
-
       {error && <p className="error-text">{error}</p>}
 
       {!loading && !error && courses.length === 0 && (
-        <p className="no-courses-text">You are not enrolled in any courses yet. Browse and enroll now!</p>
+        <p className="no-courses-text">You are not enrolled in any courses yet.</p>
       )}
 
-      {!loading && !error && courses.length > 0 && (
-        <div className="courses-grid">
-          {courses.map(course => (
-            <div key={course.id} className="course-card">
-              <h2 className="course-title">{course.title}</h2>
-              <p className="course-description">{course.description}</p>
+      <div className="courses-grid">
+        {courses.map(course => (
+          <motion.div
+            className="course-card"
+            key={course.id}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+          >
+            <img
+              src={course.thumbnailUrl || 'https://via.placeholder.com/300x180'}
+              alt={course.title}
+              className="course-thumbnail"
+            />
+            <div className="course-info">
+              <h3 className="course-title">{course.title}</h3>
+              <p className="course-description">{course.description.slice(0, 80)}...</p>
               <p className="course-progress">
-                Progress: {course.completedModules ?? 0} / {course.totalModules ?? 0} modules completed
+                Progress: {course.completedModules ?? 0} / {course.totalModules ?? 0}
               </p>
               <button
                 className="continue-btn"
@@ -78,9 +92,9 @@ export default function StudentDashboard() {
                 Continue Course
               </button>
             </div>
-          ))}
-        </div>
-      )}
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }

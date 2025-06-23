@@ -13,6 +13,7 @@ import com.abhinav.eduverse.service.CourseService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -37,6 +38,14 @@ public class CourseController {
 	public List<Course> getAllCourses() {
 		return courseService.getAllCourses();
 	}
+	
+	// API for retrieve the courses only created by that specific teacher
+	
+	@GetMapping("/teacher/{teacherId}")
+	public List<Course> getCourseByTeacher(@PathVariable Long teacherId) {
+		return courseService.getCourseByTeacher(teacherId);
+	}
+	
 	
 	
 	

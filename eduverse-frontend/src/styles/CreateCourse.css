@@ -1,0 +1,70 @@
+.create-course-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-course-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.create-course-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-course-form label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.create-course-form input[type="text"],
+.create-course-form input[type="email"],
+.create-course-form textarea {
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.create-course-form input[type="text"]:focus,
+.create-course-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.error-text {
+  color: #d9534f;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.submit-btn {
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.submit-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}

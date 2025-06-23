@@ -42,4 +42,10 @@ public class CourseService {
 	public List<Course> getAllCourses(){
 		return courseRepository.findAll();
 	}
+	
+	// To retrieve the courses only created by that specific teacher
+	
+	public List<Course> getCourseByTeacher(Long teacherId){
+		return courseRepository.findByTeacherId(teacherId);
+	}
 }

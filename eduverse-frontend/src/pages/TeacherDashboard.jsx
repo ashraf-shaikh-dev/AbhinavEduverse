@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/TeacherDashboard.css';
+import { motion } from 'framer-motion';
+import { Plus, LogOut } from 'lucide-react';
 
 export default function TeacherDashboard() {
   const [courses, setCourses] = useState([]);
@@ -12,6 +14,7 @@ export default function TeacherDashboard() {
   // Get current user from localStorage
   const user = JSON.parse(localStorage.getItem('user'));
 
+  // Fetch courses created by the current teacher
   useEffect(() => {
     if (!user || user.role !== 'TEACHER') {
       navigate('/login');
@@ -20,7 +23,7 @@ export default function TeacherDashboard() {
 
     const fetchCourses = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/api/courses/all'); // Replace with teacher-specific API if needed
+        const res = await axios.get(`http://localhost:8080/api/courses/teacher/${user.id}`);
         setCourses(res.data);
       } catch (err) {
         setError('Failed to load courses');
@@ -32,31 +35,59 @@ export default function TeacherDashboard() {
     fetchCourses();
   }, [user, navigate]);
 
+  // Logout handler
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/login');
+    if (window.confirm('Are you sure you want to log out?')) {
+      localStorage.removeItem('user');
+      navigate('/');
+    }
   };
 
   return (
     <div className="teacher-dashboard">
       <div className="dashboard-header">
-        <h1>Welcome, {user?.firstName || 'Teacher'} 👋</h1>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        <motion.h1
+          className="dashboard-title"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Welcome, {user?.firstName || 'Teacher'} 👋
+        </motion.h1>
+        <button className="logout-btn" onClick={handleLogout}>
+          <LogOut size={16} /> Logout
+        </button>
       </div>
 
-      <h2>Your Created Courses</h2>
+      <div className="create-course-container">
+        <button className="create-course-btn" onClick={() => navigate('/teacher/create-course')}>
+          <Plus size={18} /> Create New Course
+        </button>
+      </div>
 
-      {loading && <p>Loading courses...</p>}
+      <h2 className="section-title">Your Created Courses</h2>
+
+      {loading && <p className="loading">Loading courses...</p>}
       {error && <p className="error-text">{error}</p>}
-      {!loading && courses.length === 0 && <p>You haven't created any courses yet.</p>}
+      {!loading && courses.length === 0 && <p className="no-courses">You haven't created any courses yet.</p>}
 
       <div className="courses-grid">
         {courses.map(course => (
-          <div className="course-card" key={course.id}>
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
-            <button className="manage-btn">Manage Course</button>
-          </div>
+          <motion.div
+            className="course-card"
+            key={course.id}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+          >
+            <img className="course-thumb" src={course.thumbnailUrl || 'https://via.placeholder.com/150'} alt="Course Thumbnail" />
+            <div className="course-content">
+              <h3>{course.title}</h3>
+              <p>{course.description.slice(0, 100)}...</p>
+              <p className="meta">Modules: {course.totalModules || 0} • Enrolled: {course.enrolledStudents || 0}</p>
+              <button className="manage-btn">Manage Course</button>
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>
