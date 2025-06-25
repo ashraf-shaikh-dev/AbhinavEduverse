@@ -9,16 +9,20 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+  const confirmLogout = window.confirm('Are you sure you want to logout?');
+  if (confirmLogout) {
     logout();
-    navigate('/login');
-  };
+    navigate('/');
+  }
+};
+
 
   if (!isLoggedIn) {
     // Show normal navbar for guests
     return (
       <nav className="navbar">
         <div className="navbar-brand">
-          <Link to="/">Eduverse</Link>
+          <Link to="/">Abhinav-Eduverse</Link>
         </div>
         <ul className="navbar-links">
           <li><Link to="/">Home</Link></li>
@@ -35,7 +39,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">Eduverse</Link>
+        <Link to="/">Abhinav-Eduverse</Link>
       </div>
       <ul className="navbar-links">
         <li><Link to="/">Home</Link></li>

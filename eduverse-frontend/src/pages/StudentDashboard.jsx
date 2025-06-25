@@ -33,10 +33,7 @@ export default function StudentDashboard() {
     fetchCourses();
   }, [user, navigate]);
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/');
-  };
+  
 
   const handleContinueCourse = (courseId) => {
     alert(`Continue course with id: ${courseId}`);
@@ -53,7 +50,7 @@ export default function StudentDashboard() {
         >
           Welcome, {user?.firstName || 'Student'} 👋
         </motion.h1>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        
       </div>
 
       <p className="dashboard-subtitle">Here are your enrolled courses and progress:</p>

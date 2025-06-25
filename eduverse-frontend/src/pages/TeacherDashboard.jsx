@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/TeacherDashboard.css';
 import { motion } from 'framer-motion';
-import { Plus, LogOut } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 export default function TeacherDashboard() {
   const [courses, setCourses] = useState([]);
@@ -36,12 +36,7 @@ export default function TeacherDashboard() {
   }, [user, navigate]);
 
   // Logout handler
-  const handleLogout = () => {
-    if (window.confirm('Are you sure you want to log out?')) {
-      localStorage.removeItem('user');
-      navigate('/');
-    }
-  };
+  
 
   return (
     <div className="teacher-dashboard">
@@ -54,9 +49,7 @@ export default function TeacherDashboard() {
         >
           Welcome, {user?.firstName || 'Teacher'} 👋
         </motion.h1>
-        <button className="logout-btn" onClick={handleLogout}>
-          <LogOut size={16} /> Logout
-        </button>
+        
       </div>
 
       <div className="create-course-container">
