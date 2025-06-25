@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import StudentDashboard from './pages/StudentDashboard';
@@ -7,11 +7,12 @@ import TeacherDashboard from './pages/TeacherDashboard';
 import CreateCourse from './pages/CreateCourse';
 import LandingPage from './pages/LandingPage';
 import Courses from './pages/CoursesPage';
-
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <Router>
+    <>
+      <Navbar />
       <Routes>
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -20,10 +21,8 @@ function App() {
         <Route path="/teacher/create-course" element={<CreateCourse />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/" element={<LandingPage />} />
-
-
       </Routes>
-    </Router>
+    </>
   );
 }
 

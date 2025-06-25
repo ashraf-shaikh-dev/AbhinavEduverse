@@ -1,4 +1,7 @@
 /* Container for the dashboard content - centers and limits width */
+* {
+  font-family: 'Poppins', sans-serif;
+}
 .dashboard-container {
   max-width: 900px;
   margin: auto;

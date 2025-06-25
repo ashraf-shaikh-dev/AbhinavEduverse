@@ -1,4 +1,7 @@
 /* LandingPage.css */
+* {
+  font-family: 'Poppins', sans-serif;
+}
 
 /* Global page wrapper */
 .landing-page {

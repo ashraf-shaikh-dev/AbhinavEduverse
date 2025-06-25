@@ -1,4 +1,8 @@
 /* Basic global styling for layout and inputs */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -38,3 +42,18 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.container p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+

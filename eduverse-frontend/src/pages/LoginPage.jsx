@@ -1,59 +1,40 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import '../styles/global.css';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext.jsx';
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
-
-  const [error, setError] = useState('');
+  const { login } = useAuth();
   const navigate = useNavigate();
 
-  // Handle input changes
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle login form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
     try {
       const res = await axios.post('http://localhost:8080/api/users/login', formData);
-      const user = res.data;
-
-      // Save user to localStorage
-      localStorage.setItem('user', JSON.stringify(user));
-
-      // Redirect based on role
-      if (user.role === 'TEACHER') {
+      const userData = res.data;
+      login(userData);  // Update context state
+      if (userData.role === 'TEACHER') {
         navigate('/teacher/dashboard');
       } else {
         navigate('/student/dashboard');
       }
     } catch (err) {
-      console.error('Login error:', err);
-
-      if (err.response?.data?.message) {
-        setError(err.response.data.message);
-      } else {
-        setError('Login failed. Please check your credentials.');
-      }
+      setError(err.response?.data?.message || 'Login failed. Please check credentials.');
     }
   };
 
   return (
     <div className="container">
       <h2>Login</h2>
-
-      {error && <p className="error-text" role="alert">{error}</p>}
+      {error && <p className="error-text">{error}</p>}
 
       <form onSubmit={handleSubmit} noValidate>
         <input
@@ -63,7 +44,6 @@ export default function LoginPage() {
           value={formData.email}
           onChange={handleChange}
           required
-          aria-label="Email"
         />
         <input
           name="password"
@@ -72,10 +52,13 @@ export default function LoginPage() {
           value={formData.password}
           onChange={handleChange}
           required
-          aria-label="Password"
         />
         <button type="submit">Login</button>
       </form>
+
+      <p style={{ marginTop: '1rem' }}>
+        Don't have an account? <Link to="/signup">Sign up here</Link>
+      </p>
     </div>
   );
 }

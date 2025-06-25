@@ -1,0 +1,63 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+.navbar {
+  background-color: #ffffff; /* white background */
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+}
+
+.navbar-links li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar-links li a:hover {
+  color: #007bff;
+}
+
+.navbar-links li button.logout-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.navbar-links li button.logout-btn:hover {
+  color: #007bff;
+  
+}

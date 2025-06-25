@@ -1,4 +1,7 @@
 /* TeacherDashboard.css */
+* {
+  font-family: 'Poppins', sans-serif;
+}
 
 /* Root dashboard layout */
 .teacher-dashboard {

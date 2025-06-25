@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './styles/global.css'; // Global CSS for your app
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 
-// Create React root (React 18+)
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// Render the main App
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>
 );

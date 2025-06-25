@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // For redirecting after signup
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/global.css';
 
 export default function SignupPage() {
@@ -92,6 +92,9 @@ export default function SignupPage() {
 
         <button type="submit">Sign Up</button>
       </form>
+       <p style={{ marginTop: '1rem' }}>
+        Already have an account? <Link to="/login">Login here</Link>
+      </p>
     </div>
   );
 }
