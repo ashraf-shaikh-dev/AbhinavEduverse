@@ -6,6 +6,7 @@ import StudentDashboard from './pages/StudentDashboard';
 import TeacherDashboard from './pages/TeacherDashboard';
 import CreateCourse from './pages/CreateCourse';
 import LandingPage from './pages/LandingPage';
+import Courses from './pages/CoursesPage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/student/dashboard" element={<StudentDashboard />} />
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
         <Route path="/teacher/create-course" element={<CreateCourse />} />
+        <Route path="/courses" element={<Courses />} />
         <Route path="/" element={<LandingPage />} />
 
 
