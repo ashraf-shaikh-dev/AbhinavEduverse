@@ -3,6 +3,7 @@ package com.abhinav.eduverse.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import com.abhinav.eduverse.dto.ModuleDTO;
 import com.abhinav.eduverse.model.Course;
 import com.abhinav.eduverse.repository.CourseRepository;
@@ -36,5 +37,11 @@ public class ModuleService {
 		
 		return moduleRepository.save(module);
 	}
+
+
+	public List<Module> getModulesByCourseId(Long courseId) {
+	    return moduleRepository.findByCourseId(courseId);
+	}
+
 
 }

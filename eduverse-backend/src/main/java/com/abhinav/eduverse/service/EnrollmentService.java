@@ -1,6 +1,7 @@
 package com.abhinav.eduverse.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,5 +51,11 @@ public class EnrollmentService {
 		// Saves the enrollment
 		return enrollmentRepository.save(enrollment);
 	}
+
+
+	public List<User> getStudentsByCourseId(Long courseId) {
+	    return enrollmentRepository.findUsersByCourseId(courseId);
+	}
+
 
 }

@@ -73,12 +73,12 @@ export default function TeacherDashboard() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4 }}
           >
-            <img className="course-thumb" src={course.thumbnailUrl || 'https://via.placeholder.com/150'} alt="Course Thumbnail" />
+            <img className="course-image" src={course.thumbnailUrl || 'https://via.placeholder.com/150'} alt="Course Thumbnail" />
             <div className="course-content">
               <h3>{course.title}</h3>
               <p>{course.description.slice(0, 100)}...</p>
               <p className="meta">Modules: {course.totalModules || 0} • Enrolled: {course.enrolledStudents || 0}</p>
-              <button className="manage-btn">Manage Course</button>
+              <button className="manage-btn" onClick={() => navigate(`/teacher/manage-course/${course.id}`)}>Manage Course</button>
             </div>
           </motion.div>
         ))}

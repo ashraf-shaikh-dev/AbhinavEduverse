@@ -8,6 +8,7 @@ import CreateCourse from './pages/CreateCourse';
 import LandingPage from './pages/LandingPage';
 import Courses from './pages/CoursesPage';
 import Navbar from './components/Navbar';
+import ManageCourse from'./pages/ManageCourse';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/teacher/create-course" element={<CreateCourse />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/" element={<LandingPage />} />
+        <Route path="/teacher/manage-course/:courseId" element={<ManageCourse />} />
       </Routes>
     </>
   );

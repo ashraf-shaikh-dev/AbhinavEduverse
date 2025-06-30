@@ -11,6 +11,7 @@ import com.abhinav.eduverse.dto.CourseDTO;
 import com.abhinav.eduverse.model.Course;
 import com.abhinav.eduverse.service.CourseService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,6 +46,18 @@ public class CourseController {
 	public List<Course> getCourseByTeacher(@PathVariable Long teacherId) {
 		return courseService.getCourseByTeacher(teacherId);
 	}
+	
+	@GetMapping("/{courseId}")
+	public Course getCourseById(@PathVariable Long courseId) {
+	    return courseService.getCourseById(courseId);
+	}
+	
+	@PutMapping("/{courseId}")
+	public Course updateCourse(@PathVariable Long courseId, @RequestBody CourseDTO courseDTO) {
+	    return courseService.updateCourse(courseId, courseDTO);
+	}
+
+	
 	
 	
 	
