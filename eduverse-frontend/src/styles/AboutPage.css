@@ -1,0 +1,92 @@
+.about-page {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgb(0 0 0 / 0.1);
+  line-height: 1.65;
+  font-size: 14px; /* Decreased base font size */
+}
+
+.about-page h1 {
+  font-size: 2.2rem; /* decreased from 2.8rem */
+  font-weight: 700;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.about-page h2 {
+  font-size: 1.4rem; /* decreased from 1.8rem */
+  font-weight: 600;
+  color: #0056b3; /* darker shade of your blue */
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+  padding-left: 12px;
+  border-left: 5px solid #007bff;
+}
+
+.about-page p {
+  font-size: 1rem; /* decreased from 1.15rem */
+  margin-bottom: 1.4rem;
+  color: #333;
+}
+
+.about-page strong {
+  color: #0056b3;
+}
+
+.about-page ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.7rem;
+}
+
+.about-page ul li {
+  font-size: 1rem; /* decreased from 1.15rem */
+  margin-bottom: 0.9rem;
+  padding-left: 34px;
+  position: relative;
+  font-weight: 500;
+  color: #222;
+}
+
+.about-page ul li::before {
+  content: attr(data-emoji);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.3rem; /* slightly smaller */
+  user-select: none;
+}
+
+.credit {
+  margin-top: 3.2rem;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  font-size: 0.9rem; /* slightly smaller */
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    margin: 2rem 1rem;
+    padding: 1.5rem 1rem;
+    font-size: 13px; /* adjust for mobile */
+  }
+
+  .about-page h1 {
+    font-size: 1.8rem; /* decreased */
+  }
+
+  .about-page h2 {
+    font-size: 1.2rem; /* decreased */
+  }
+
+  .about-page ul li {
+    font-size: 0.9rem; /* fix incomplete */
+  }
+}

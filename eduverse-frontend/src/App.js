@@ -9,6 +9,7 @@ import LandingPage from './pages/LandingPage';
 import Courses from './pages/CoursesPage';
 import Navbar from './components/Navbar';
 import ManageCourse from'./pages/ManageCourse';
+import About from "./pages/AboutPage";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/teacher/manage-course/:courseId" element={<ManageCourse />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
     </>
   );
