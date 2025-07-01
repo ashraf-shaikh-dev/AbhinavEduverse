@@ -1,0 +1,75 @@
+/* Container wrapping the form */
+.edit-course-form {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem 3rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* Input and textarea styling */
+.edit-course-form input[type="text"],
+.edit-course-form textarea {
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+  width: 100%;
+}
+
+.edit-course-form input[type="text"]:focus,
+.edit-course-form textarea:focus {
+  border-color: #f05a28; /* Udemy's orange */
+  box-shadow: 0 0 6px rgba(240, 90, 40, 0.3);
+}
+
+/* Buttons container to align them horizontally */
+.edit-course-form button {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+}
+
+/* Save button - Udemy orange */
+.btn-save {
+  background-color: #f05a28;
+  color: white;
+  margin-right: 1rem;
+}
+
+.btn-save:hover {
+  background-color: #d94b1f;
+}
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+
+
+/* Cancel button - subtle gray */
+.btn-cancel {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background-color: #c6c6c6;
+}

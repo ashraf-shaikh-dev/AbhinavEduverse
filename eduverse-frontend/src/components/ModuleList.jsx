@@ -63,7 +63,7 @@ export default function ModuleList({ modules, onDelete }) {
     <div className="module-list">
       <h3>Modules</h3>
       <ul>
-        {modules.map((mod) => (
+        {modules.map((mod, index) => (
           <li key={mod.id} className="module-item">
             {editingModuleId === mod.id ? (
               <div className="edit-module-form">
@@ -95,9 +95,13 @@ export default function ModuleList({ modules, onDelete }) {
             ) : (
               <>
                 <div className="module-header">
-                  <strong>{mod.title}</strong>
-                  <button className="expand-btn" onClick={() => toggleExpand(mod.id)}>
-                    {expandedModuleId === mod.id ? "🔽 Collapse" : "▶️ Expand"}
+                  <strong>{`Module ${index + 1}: ${mod.title}`}</strong>
+                  <button
+                    className="expand-btn"
+                    onClick={() => toggleExpand(mod.id)}
+                    aria-label={expandedModuleId === mod.id ? "Collapse module" : "Expand module"}
+                  >
+                    {expandedModuleId === mod.id ? "🔽 Collapse " : "▶️ Expand "}
                   </button>
                 </div>
 

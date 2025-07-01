@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import '../styles/EditCoursePage.css';
+
 
 export default function EditCoursePage() {
   const { courseId } = useParams();
@@ -33,11 +35,15 @@ export default function EditCoursePage() {
 
   return (
     <form className="edit-course-form" onSubmit={handleUpdate}>
-      <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-      <textarea value={description} onChange={e => setDescription(e.target.value)} />
-      <input type="text" value={thumbnail} onChange={e => setThumbnail(e.target.value)} />
-      <button className="btn-save" type="submit">Save</button>
-      <button className="btn-cancel" type="button" onClick={() => navigate(-1)}>Cancel</button>
-    </form>
+  <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+  <textarea value={description} onChange={e => setDescription(e.target.value)} />
+  <input type="text" value={thumbnail} onChange={e => setThumbnail(e.target.value)} />
+  
+  <div className="button-group">
+    <button className="btn-save" type="submit">Save</button>
+    <button className="btn-cancel" type="button" onClick={() => navigate(-1)}>Cancel</button>
+  </div>
+</form>
+
   );
 }
