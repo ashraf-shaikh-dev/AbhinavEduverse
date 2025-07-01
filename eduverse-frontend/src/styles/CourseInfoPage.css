@@ -1,0 +1,63 @@
+.course-info-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.course-thumbnail {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.course-thumbnail:hover {
+  transform: scale(1.03);
+}
+
+.course-details {
+  width: 100%;
+  text-align: center;
+}
+
+.course-details h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.course-details p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.course-details strong {
+  color: #111;
+}
+
+.course-details button {
+  margin: 0.4rem 0.6rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  background-color: #5a67d8; /* Udemy-like purple */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.course-details button:hover {
+  background-color: #434190;
+}

@@ -10,5 +10,5 @@ import com.abhinav.eduverse.model.Module;
 @Repository
 public interface ModuleRepository extends JpaRepository<Module, Long>{
 	List<Module> findByCourseId(Long courseId);
-
+	List<Module> findByCourseIdOrderByModuleOrderAsc(Long courseId);
 }

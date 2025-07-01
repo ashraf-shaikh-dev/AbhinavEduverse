@@ -40,8 +40,37 @@ public class ModuleService {
 
 
 	public List<Module> getModulesByCourseId(Long courseId) {
-	    return moduleRepository.findByCourseId(courseId);
+	    return moduleRepository.findByCourseIdOrderByModuleOrderAsc(courseId);
 	}
+	
+	public Module addModule(Module module) {
+		Long courseId = module.getCourse() != null ? module.getCourse().getId() : null;
+		if (courseId == null) {
+		    throw new IllegalArgumentException("Course ID must not be null");
+		}
+
+
+
+	    Course course = courseRepository.findById(module.getCourse().getId())
+	        .orElseThrow(() -> new RuntimeException("Course not found"));
+
+	    module.setCourse(course);
+	    return moduleRepository.save(module);
+	}
+	
+	public Module updateModule(Long id, Module updatedModule) {
+	    Module existingModule = moduleRepository.findById(id)
+	        .orElseThrow(() -> new RuntimeException("Module not found with id: " + id));
+
+	    existingModule.setTitle(updatedModule.getTitle());
+	    existingModule.setContent(updatedModule.getContent());
+	    existingModule.setVideoUrl(updatedModule.getVideoUrl());
+
+	    return moduleRepository.save(existingModule);
+	}
+
+	
+
 
 
 }

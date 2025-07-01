@@ -1,35 +1,29 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../styles/AddModuleForm.css';
+import React, { useState } from "react";
+import axios from "axios";
+import "../styles/AddModuleForm.css";
 
 export default function AddModuleForm({ courseId, onModuleAdded }) {
   const [formData, setFormData] = useState({
-    title: '',
-    content: '',
-    videoUrl: '',
-    moduleOrder: '',
+    title: "",
+    content: "",
+    videoUrl: "",
   });
 
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Creating module with courseId:", courseId);
-
       await axios.post(`http://localhost:8080/api/modules/create`, {
         ...formData,
-        courseId: courseId
+        courseId,
       });
-      setFormData({ title: '', content: '', videoUrl: '', moduleOrder: '' });
+      setFormData({ title: "", content: "", videoUrl: "" });
       onModuleAdded();
-    } catch (err) {
-      alert('Failed to add module');
+    } catch {
+      alert("Failed to add module");
     }
   };
 
@@ -49,15 +43,14 @@ export default function AddModuleForm({ courseId, onModuleAdded }) {
         value={formData.content}
         onChange={handleChange}
         required
-      ></textarea>
+      />
       <input
         type="text"
         name="videoUrl"
-        placeholder="Video URL"
+        placeholder="YouTube Video URL (optional)"
         value={formData.videoUrl}
         onChange={handleChange}
       />
-      
       <button type="submit">Add Module</button>
     </form>
   );

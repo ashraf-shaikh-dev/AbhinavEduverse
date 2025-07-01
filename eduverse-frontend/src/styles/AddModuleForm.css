@@ -1,0 +1,71 @@
+.add-module-form {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1c1d1f;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.add-module-form input[type="text"],
+.add-module-form textarea {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.add-module-form input[type="text"]:focus,
+.add-module-form textarea:focus {
+  border-color: #ec5252;
+  outline: none;
+  box-shadow: 0 0 8px rgba(236, 82, 82, 0.3);
+}
+
+.add-module-form textarea {
+  min-height: 120px;
+}
+
+.add-module-form button {
+  align-self: flex-start;
+  background-color: #ec5252;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  box-shadow: 0 4px 12px rgb(236 82 82 / 0.4);
+}
+
+.add-module-form button:hover {
+  background-color: #b93131;
+}
+
+.add-module-form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(236, 82, 82, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .add-module-form {
+    margin: 1rem 1rem 2rem;
+    padding: 1.5rem;
+  }
+
+  .add-module-form button {
+    width: 100%;
+    padding: 0.8rem;
+  }
+}
