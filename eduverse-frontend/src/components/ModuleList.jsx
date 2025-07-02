@@ -47,6 +47,7 @@ export default function ModuleList({ modules, onDelete }) {
   const toggleExpand = (moduleId) => {
     setExpandedModuleId((prev) => (prev === moduleId ? null : moduleId));
   };
+  
 
   const getYoutubeEmbedUrl = (videoUrl) => {
     if (!videoUrl) return "";

@@ -1,0 +1,85 @@
+.course-details-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.course-details-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+.course-details-page img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+}
+
+.course-details-page p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.course-details-page p:last-of-type {
+  font-weight: 600;
+  color: #007bff; /* Blue accent for Total Modules */
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.enroll-btn, button.enroll-btn {
+  display: block;
+  width: 220px;
+  margin: 0 auto;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 0;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.enroll-btn:hover, button.enroll-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 8px 25px rgba(0,86,179,0.6);
+}
+
+.enroll-btn:disabled, button.enroll-btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .course-details-page {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .course-details-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .enroll-btn {
+    width: 100%;
+  }
+}

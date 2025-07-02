@@ -27,7 +27,7 @@ public class EnrollmentService {
 	private CourseRepository courseRepository;
 	
 	
-	public Enrollment enorll(EnrollmentDTO enrollmentDTO) {
+	public Enrollment enroll(EnrollmentDTO enrollmentDTO) {
 		
 		// Checks for the student availability
 		User student = userRepository.findById(enrollmentDTO.getStudentId())

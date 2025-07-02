@@ -28,7 +28,7 @@ public class EnrollmentController {
 	// API to enroll student
 	@PostMapping("/enroll")
 	public Enrollment enrollStudent(@RequestBody EnrollmentDTO enrollmentDTO) {
-		return enrollmentService.enorll(enrollmentDTO);
+		return enrollmentService.enroll(enrollmentDTO);
 	}
 	
 	 @GetMapping("/course/{courseId}")

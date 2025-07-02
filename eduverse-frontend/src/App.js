@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage";
 import Courses from "./pages/CoursesPage";
 import Navbar from "./components/Navbar";
 import About from "./pages/AboutPage";
+import CourseDetailsPage from "./pages/CourseDetailsPage";
 
 // Manage Course Feature
 import ManageCourseLayout from "./pages/ManageCourseLayout";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
         <Route path="/teacher/create-course" element={<CreateCourse />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:courseId" element={<CourseDetailsPage />} />
 
         {/* Manage Course Section */}
         <Route path="/manage-course/:courseId" element={<ManageCourseLayout />}>
