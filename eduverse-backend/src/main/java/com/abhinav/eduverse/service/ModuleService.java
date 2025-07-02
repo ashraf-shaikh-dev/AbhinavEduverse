@@ -68,6 +68,13 @@ public class ModuleService {
 
 	    return moduleRepository.save(existingModule);
 	}
+	
+	  public void deleteModule(Long moduleId) {
+	        if (!moduleRepository.existsById(moduleId)) {
+	            throw new RuntimeException("Module not found with id " + moduleId);
+	        }
+	        moduleRepository.deleteById(moduleId);
+	    }
 
 	
 
