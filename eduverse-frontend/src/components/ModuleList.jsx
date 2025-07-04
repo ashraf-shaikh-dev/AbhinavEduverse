@@ -120,7 +120,8 @@ export default function ModuleList({ modules, onDelete }) {
                     ) : (
                       <div className="no-video">No video preview available</div>
                     )}
-                    <p>{mod.content}</p>
+                    <pre className="module-description">{mod.content}</pre>
+
                     <div className="module-buttons">
                       <button onClick={() => handleEditClick(mod)}>Edit</button>
                       <button onClick={() => handleDelete(mod.id)}>Delete</button>

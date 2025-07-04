@@ -15,7 +15,7 @@ export default function CourseInfoPage() {
       try {
         const [courseRes, modulesRes] = await Promise.all([
           axios.get(`http://localhost:8080/api/courses/${courseId}`),
-          axios.get(`http://localhost:8080/api/modules/course/${courseId}`)
+          axios.get(`http://localhost:8080/api/modules/course/${courseId}`),
         ]);
         setCourse(courseRes.data);
         setModules(modulesRes.data);
@@ -48,17 +48,31 @@ export default function CourseInfoPage() {
 
       <div className="course-details">
         <h1>{course.title}</h1>
-        <p>{course.description}</p>
+        <p className="course-description">
+          {course.description.split("\n").map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
+        </p>
+
         <p>
           <strong>Modules:</strong> {modules.length}
         </p>
         <button className="btn-edit" onClick={() => navigate("edit")}>
           Edit Course Info
         </button>
-        <button className="btn-add-module" onClick={() => navigate("add-module")}>
+        <button
+          className="btn-add-module"
+          onClick={() => navigate("add-module")}
+        >
           Add Module
         </button>
-        <button className="btn-view-modules" onClick={() => navigate("modules")}>
+        <button
+          className="btn-view-modules"
+          onClick={() => navigate("modules")}
+        >
           View Modules
         </button>
       </div>

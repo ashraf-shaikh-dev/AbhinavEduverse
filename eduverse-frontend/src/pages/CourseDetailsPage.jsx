@@ -33,7 +33,7 @@ export default function CourseDetailsPage() {
     <div className="course-details-page">
       <h1>{course.title}</h1>
       <img src={course.thumbnailUrl || 'https://via.placeholder.com/600x300'} alt={course.title} />
-      <p>{course.description}</p>
+      <pre className="course-description">{course.description}</pre>
       <p>Total Modules: {course.totalModules ?? 0}</p>
 
       {/* Enroll button here */}
