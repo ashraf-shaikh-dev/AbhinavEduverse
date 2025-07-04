@@ -37,7 +37,7 @@ public class ModuleController {
 		return moduleService.getModulesByCourseId(courseId);
 	}
 
-	@PutMapping("/modules/{id}")
+	@PutMapping("/{id}")
 	public Module updateModule(@PathVariable Long id, @RequestBody Module updatedModule) {
 		return moduleService.updateModule(id, updatedModule);
 	}

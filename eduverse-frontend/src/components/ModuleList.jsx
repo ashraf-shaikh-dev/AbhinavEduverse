@@ -23,6 +23,7 @@ export default function ModuleList({ modules, onDelete }) {
 
   const handleEditClick = (mod) => {
     setEditingModuleId(mod.id);
+    setExpandedModuleId(mod.id);
     setEditedModule({
       title: mod.title,
       content: mod.content,
