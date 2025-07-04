@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.abhinav.eduverse.dto.EnrolledCourseDTO;
 import com.abhinav.eduverse.dto.EnrollmentDTO;
+import com.abhinav.eduverse.model.Course;
 import com.abhinav.eduverse.model.Enrollment;
 import com.abhinav.eduverse.model.User;
 import com.abhinav.eduverse.service.EnrollmentService;
@@ -34,6 +36,11 @@ public class EnrollmentController {
 	 @GetMapping("/course/{courseId}")
 	    public List<User> getEnrolledStudents(@PathVariable Long courseId) {
 	        return enrollmentService.getStudentsByCourseId(courseId);
+	    }
+	 
+	 @GetMapping("/student/{studentId}/courses")
+	    public List<EnrolledCourseDTO> getEnrolledCoursesWithProgress(@PathVariable Long studentId) {
+	        return enrollmentService.getEnrolledCoursesWithProgress(studentId);
 	    }
 	
 	

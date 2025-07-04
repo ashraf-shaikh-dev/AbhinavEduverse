@@ -19,5 +19,10 @@ public interface  ModuleProgressRepository extends JpaRepository<ModuleProgress,
 	
 	// To find the progress with the help of module
 	List<ModuleProgress> findByModule(Module module);
+	
+	List<ModuleProgress> findByStudentIdAndCompletedTrue(Long studentId);
+	
+	int countByStudentIdAndModuleIdInAndCompletedTrue(Long studentId, List<Long> moduleIds);
+	
 
 }

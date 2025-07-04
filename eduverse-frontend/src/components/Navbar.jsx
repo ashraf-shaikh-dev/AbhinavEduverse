@@ -1,21 +1,19 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext.jsx';
-import '../styles/Navbar.css';
-
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
+import "../styles/Navbar.css";
 
 export default function Navbar() {
   const { isLoggedIn, user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-  const confirmLogout = window.confirm('Are you sure you want to logout?');
-  if (confirmLogout) {
-    logout();
-    navigate('/');
-  }
-};
-
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      logout();
+      navigate("/");
+    }
+  };
 
   if (!isLoggedIn) {
     // Show normal navbar for guests
@@ -25,11 +23,21 @@ export default function Navbar() {
           <Link to="/">Abhinav-Eduverse</Link>
         </div>
         <ul className="navbar-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/courses">Courses</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/signup">Signup</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/courses">Courses</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/signup">Signup</Link>
+          </li>
         </ul>
       </nav>
     );
@@ -42,11 +50,32 @@ export default function Navbar() {
         <Link to="/">Abhinav-Eduverse</Link>
       </div>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/courses">Courses</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/profile">Hi, {user?.firstName || 'User'}</Link></li>
-        <li><button className="logout-btn" onClick={handleLogout}>Logout</button></li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/courses">Courses</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          {user?.role === "STUDENT" ? (
+            <Link to="/student/dashboard">
+              Hi, {user.firstName || "Student"}
+            </Link>
+          ) : (
+            <Link to="/teacher/dashboard">
+              Hi, {user.firstName || "Teacher"}
+            </Link>
+          )}
+        </li>
+
+        <li>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </li>
       </ul>
     </nav>
   );

@@ -1,93 +1,77 @@
-/* Container for the dashboard content - centers and limits width */
 * {
   font-family: 'Poppins', sans-serif;
 }
-.dashboard-container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #34495e; /* Dark slate color for text */
+
+.courses-page {
+  padding: 2rem;
+  background: #f8f9fa;
+  min-height: 100vh;
 }
 
-/* Main heading styling */
-.dashboard-title {
-  color: #2c3e50;
-  margin-bottom: 8px;
+.courses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
-/* Subtitle/welcome message */
-.dashboard-welcome {
-  font-size: 18px;
-  margin-bottom: 20px;
+.courses-header h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* Style for loading indicator */
-.loading-text {
-  font-style: italic;
+.meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0;
 }
 
-/* Error message styling */
-.error-text {
-  color: red;
-  font-weight: 600;
-}
-
-/* Message shown when no courses are enrolled */
-.no-courses-text {
-  font-style: italic;
-  color: #7f8c8d;
-}
-
-/* Grid container for course cards with responsive columns */
 .courses-grid {
   display: grid;
+  gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
 }
 
-/* Individual course card */
 .course-card {
-  background-color: #ecf0f1; /* Light grey background */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow */
-  padding: 15px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Course title styling */
-.course-title {
-  margin: 0 0 10px 0;
-  color: #34495e;
-}
-
-/* Course description styling */
-.course-description {
-  flex-grow: 1;
-  margin-bottom: 12px;
-}
-
-/* Progress text styling */
-.course-progress {
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-/* Continue course button styling */
-.continue-btn {
-  padding: 8px 12px;
-  background-color: #2980b9; /* Blue color */
-  border: none;
-  border-radius: 4px;
-  color: white;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
 }
 
-/* Hover effect for button */
-.continue-btn:hover {
-  background-color: #1c5980; /* Darker blue on hover */
+.course-card:hover {
+  transform: translateY(-4px);
+}
+
+.course-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.course-info {
+  padding: 1rem;
+}
+
+.course-info h3 {
+  margin-bottom: 0.5rem;
+  color: #2a6ebb;
+}
+
+.enroll-btn {
+  background: #4e60ff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 0.95rem;
+}
+
+.enroll-btn:hover {
+  background: #3d4fd0;
 }

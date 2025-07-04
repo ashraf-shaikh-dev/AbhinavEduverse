@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import '../styles/StudentDashboard.css';
 
 export default function StudentDashboard() {
@@ -18,78 +17,72 @@ export default function StudentDashboard() {
       return;
     }
 
-    const fetchCourses = async () => {
+    const fetchEnrolledCourses = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/api/courses/all');
-        setCourses(res.data);
+        const res = await axios.get(`http://localhost:8080/api/enrollments/student/${user.id}/courses`);
+        setCourses(res.data); // Array of EnrolledCourseDTO
       } catch (err) {
-        console.error('Error fetching courses:', err);
-        setError('Failed to load courses.');
+        console.error('Error fetching enrolled courses:', err);
+        setError('Failed to load enrolled courses.');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchCourses();
+    fetchEnrolledCourses();
   }, [user, navigate]);
 
-  
-
   const handleContinueCourse = (courseId) => {
-    alert(`Continue course with id: ${courseId}`);
+    navigate(`/courses/${courseId}`);
   };
 
   return (
-    <div className="student-dashboard">
-      <div className="dashboard-header">
-        <motion.h1
-          className="dashboard-title"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Welcome, {user?.firstName || 'Student'} 👋
-        </motion.h1>
-        
+    <div className="courses-page">
+      <div className="courses-header">
+        <h1>Welcome, {user?.firstName || 'Student'} 👋</h1>
+        <p className="meta">Your enrolled courses:</p>
       </div>
 
-      <p className="dashboard-subtitle">Here are your enrolled courses and progress:</p>
-
-      {loading && <p className="loading-text">Loading courses...</p>}
-      {error && <p className="error-text">{error}</p>}
-
+      {loading && <p className="meta">Loading...</p>}
+      {error && <p className="meta" style={{ color: 'red' }}>{error}</p>}
       {!loading && !error && courses.length === 0 && (
-        <p className="no-courses-text">You are not enrolled in any courses yet.</p>
+        <p className="meta">You are not enrolled in any courses yet.</p>
       )}
 
       <div className="courses-grid">
         {courses.map(course => (
-          <motion.div
+          <div
             className="course-card"
-            key={course.id}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
+            key={course.courseId}
+            onClick={() => handleContinueCourse(course.courseId)}
           >
             <img
               src={course.thumbnailUrl || 'https://via.placeholder.com/300x180'}
               alt={course.title}
-              className="course-thumbnail"
+              className="course-thumb"
             />
             <div className="course-info">
-              <h3 className="course-title">{course.title}</h3>
-              <p className="course-description">{course.description.slice(0, 80)}...</p>
-              <p className="course-progress">
-                Progress: {course.completedModules ?? 0} / {course.totalModules ?? 0}
+              <h3>{course.title}</h3>
+              <p className="meta">
+                {course.description?.slice(0, 80) || 'No description'}...
+              </p>
+              <p className="meta">
+                Progress: {course.completedModules} / {course.totalModules} modules
+              </p>
+              <p className="meta">
+                Completion: {course.progress?.toFixed(1) || 0}% complete
               </p>
               <button
-                className="continue-btn"
-                onClick={() => handleContinueCourse(course.id)}
+                className="enroll-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleContinueCourse(course.courseId);
+                }}
               >
-                Continue Course
+                Continue Learning
               </button>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
