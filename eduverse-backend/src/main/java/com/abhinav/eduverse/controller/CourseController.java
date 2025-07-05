@@ -35,10 +35,10 @@ public class CourseController {
 	}
 	
 	// API for retrieving all courses
-	@GetMapping("/all")
-	public List<Course> getAllCourses() {
-		return courseService.getAllCourses();
-	}
+	 @GetMapping("/all")
+	    public List<CourseDTO> getAllCoursesWithModuleCount() {
+	        return courseService.getAllCoursesWithModuleCount();
+	    }
 	
 	// API for retrieve the courses only created by that specific teacher
 	
@@ -48,9 +48,10 @@ public class CourseController {
 	}
 	
 	@GetMapping("/{courseId}")
-	public Course getCourseById(@PathVariable Long courseId) {
-	    return courseService.getCourseById(courseId);
+	public CourseDTO getCourseDetailsWithModuleCount(@PathVariable Long courseId) {
+	    return courseService.getCourseDetailsWithModuleCount(courseId);
 	}
+
 	
 	@PutMapping("/{courseId}")
 	public Course updateCourse(@PathVariable Long courseId, @RequestBody CourseDTO courseDTO) {
