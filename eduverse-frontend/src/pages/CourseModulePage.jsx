@@ -41,7 +41,7 @@ export default function CourseModulesPage() {
 
   const markComplete = async (moduleId) => {
     try {
-      await axios.post(`http://localhost:8080/api/module-progress/complete`, {
+      await axios.post(`http://localhost:8080/api/progress/complete`, {
         studentId: user.id,
         moduleId,
         completed: true,
