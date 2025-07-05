@@ -1,6 +1,9 @@
 package com.abhinav.eduverse.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,4 +52,42 @@ public class ModuleProgressService {
 		// Saving the progress
 		return moduleProgressRepository.save(progress);
 	}
+	
+	public void markModuleCompleted(Long studentId, Long moduleId) {
+	    // Check if already marked complete
+	    Optional<ModuleProgress> existing = moduleProgressRepository.findByStudentIdAndModuleId(studentId, moduleId);
+
+	    if (existing.isPresent()) {
+	        ModuleProgress mp = existing.get();
+	        if (!mp.isCompleted()) {
+	            mp.setCompleted(true);
+	            mp.setCompletedAt(LocalDateTime.now());
+	            moduleProgressRepository.save(mp);
+	        }
+	    } else {
+	        // Create new progress entry
+	        ModuleProgress mp = new ModuleProgress();
+	        mp.setStudent(userRepository.findById(studentId).orElseThrow(() -> new RuntimeException("User not found")));
+	        mp.setModule(moduleRepository.findById(moduleId).orElseThrow(() -> new RuntimeException("Module not found")));
+	        mp.setCompleted(true);
+	        mp.setCompletedAt(LocalDateTime.now());
+	        moduleProgressRepository.save(mp);
+	    }
+	}
+
+	public List<ModuleProgressDTO> getProgressByStudentAndCourse(Long studentId, Long courseId) {
+		List<ModuleProgress> progressList = moduleProgressRepository.findByStudentIdAndModuleCourseId(studentId, courseId);
+
+
+    // Convert ModuleProgress to DTO as needed
+		 return progressList.stream()
+		            .map(mp -> new ModuleProgressDTO(
+		            		mp.getStudent().getId(),
+		                    mp.getModule().getId(),
+		                    mp.isCompleted()
+		            ))
+		            .collect(Collectors.toList());
+}
+
+	
 }

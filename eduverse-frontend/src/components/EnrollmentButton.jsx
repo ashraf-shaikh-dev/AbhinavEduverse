@@ -11,7 +11,14 @@ export default function EnrollButton({ courseId }) {
   const [loading, setLoading] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true);
 
+  console.log("EnrollButton received courseId:", courseId); // ✅ Debug
+
   useEffect(() => {
+    if (!courseId || !user?.id || !isLoggedIn) {
+      setCheckingStatus(false);
+      return;
+    }
+
     const checkEnrollment = async () => {
       try {
         const res = await axios.get(`http://localhost:8080/api/enrollments/course/${courseId}`);
@@ -26,11 +33,7 @@ export default function EnrollButton({ courseId }) {
       }
     };
 
-    if (isLoggedIn && user?.id) {
-      checkEnrollment();
-    } else {
-      setCheckingStatus(false);
-    }
+    checkEnrollment();
   }, [courseId, user, isLoggedIn]);
 
   const handleEnroll = async () => {
@@ -57,7 +60,7 @@ export default function EnrollButton({ courseId }) {
     return (
       <button
         className="btn btn-success"
-        onClick={() => navigate(`/courses/${courseId}`)}
+        onClick={() => navigate(`/course-modules/${courseId}`)}
       >
         Go to Course
       </button>

@@ -35,6 +35,7 @@ export default function StudentDashboard() {
   const handleContinueCourse = (courseId) => {
     navigate(`/courses/${courseId}`);
   };
+  
 
   return (
     <div className="courses-page">

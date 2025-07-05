@@ -1,5 +1,7 @@
 package com.abhinav.eduverse.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +32,7 @@ public class Module {
 	// One course having many modules
 	@ManyToOne
 	@JoinColumn(name = "course_id")
+	@JsonBackReference
 	private Course course;
 	
 	//Default constructor

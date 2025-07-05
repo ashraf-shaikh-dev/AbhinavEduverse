@@ -66,6 +66,7 @@ export default function CoursesPage() {
               <h3>{course.title}</h3>
               <p>{course.description.slice(0, 100)}...</p>
               <p className="meta">Modules: {course.totalModules ?? 0}</p>
+
               <button
                 className="enroll-btn"
                 onClick={() => navigate(`/courses/${course.id}`)}
