@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.abhinav.eduverse.model.Module;
 import com.abhinav.eduverse.model.ModuleProgress;
@@ -26,7 +28,9 @@ public interface  ModuleProgressRepository extends JpaRepository<ModuleProgress,
 	
 	Optional<ModuleProgress> findByStudentIdAndModuleId(Long studentId, Long moduleId);
 
-	List<ModuleProgress> findByStudentIdAndModuleCourseId(Long studentId, Long courseId);
+	@Query("SELECT mp FROM ModuleProgress mp WHERE mp.student.id = :studentId AND mp.module.course.id = :courseId")
+    List<ModuleProgress> findByStudentIdAndModuleCourseId(@Param("studentId") Long studentId, @Param("courseId") Long courseId);
+}
 
 	
 

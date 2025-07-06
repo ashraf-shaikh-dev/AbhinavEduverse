@@ -49,7 +49,7 @@
 }
 
 .course-button.completed {
-  background-color: #4caf50;
+  background-color: #8228c4;
   cursor: default;
 }
 
@@ -90,6 +90,6 @@
 }
 
 .module-button.completed {
-  color: #2e7d32;
+  color: #8228c4;
   font-weight: bold;
 }

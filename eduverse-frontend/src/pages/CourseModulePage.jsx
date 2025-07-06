@@ -25,8 +25,9 @@ export default function CourseModulesPage() {
         }
 
         const progressMap = {};
+        // Use mp.moduleId since backend DTO returns flat structure
         progressRes.data.forEach((mp) => {
-          progressMap[mp.module.id] = mp.completed;
+          progressMap[mp.moduleId] = mp.completed;
         });
         setProgress(progressMap);
       } catch (err) {
