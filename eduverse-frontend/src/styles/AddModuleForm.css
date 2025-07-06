@@ -1,11 +1,11 @@
 .add-module-form {
-  max-width: 900px;
+  max-width: 700px;
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
-  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins', sans-serif;
   color: #1c1d1f;
   display: flex;
   flex-direction: column;
@@ -14,20 +14,20 @@
 
 .add-module-form input[type="text"],
 .add-module-form textarea {
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 0.75rem 1rem;
-  border: 1.5px solid #ddd;
+  border: 1.5px solid #ccc;
   border-radius: 8px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   resize: vertical;
   font-family: inherit;
 }
 
 .add-module-form input[type="text"]:focus,
 .add-module-form textarea:focus {
-  border-color: #ec5252;
+  border-color: #2a6ebb;
+  box-shadow: 0 0 6px rgba(42, 110, 187, 0.25);
   outline: none;
-  box-shadow: 0 0 8px rgba(236, 82, 82, 0.3);
 }
 
 .add-module-form textarea {
@@ -36,31 +36,31 @@
 
 .add-module-form button {
   align-self: flex-start;
-  background-color: #ec5252;
+  background-color: #2a6ebb;
   color: white;
   border: none;
-  padding: 0.75rem 2rem;
+  padding: 0.7rem 2rem;
   border-radius: 8px;
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.25s ease;
-  box-shadow: 0 4px 12px rgb(236 82 82 / 0.4);
+  box-shadow: 0 4px 14px rgba(42, 110, 187, 0.3);
 }
 
 .add-module-form button:hover {
-  background-color: #b93131;
+  background-color: #1e88e5;
 }
 
 .add-module-form button:focus {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(236, 82, 82, 0.5);
+  box-shadow: 0 0 0 4px rgba(42, 110, 187, 0.3);
 }
 
 /* Responsive */
 @media (max-width: 600px) {
   .add-module-form {
-    margin: 1rem 1rem 2rem;
+    margin: 1rem;
     padding: 1.5rem;
   }
 

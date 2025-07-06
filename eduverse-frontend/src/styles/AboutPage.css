@@ -1,42 +1,42 @@
 .about-page {
   max-width: 900px;
   margin: 3rem auto;
-  padding: 2rem 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #222;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 25px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
   line-height: 1.65;
-  font-size: 14px; /* Decreased base font size */
+  font-size: 14px;
 }
 
 .about-page h1 {
-  font-size: 2.2rem; /* decreased from 2.8rem */
+  font-size: 2.2rem;
   font-weight: 700;
-  color: #007bff;
+  color: #2a6ebb;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
 .about-page h2 {
-  font-size: 1.4rem; /* decreased from 1.8rem */
+  font-size: 1.4rem;
   font-weight: 600;
-  color: #0056b3; /* darker shade of your blue */
+  color: #1e88e5;
   margin-top: 2.8rem;
   margin-bottom: 1rem;
   padding-left: 12px;
-  border-left: 5px solid #007bff;
+  border-left: 5px solid #2a6ebb;
 }
 
 .about-page p {
-  font-size: 1rem; /* decreased from 1.15rem */
+  font-size: 1rem;
   margin-bottom: 1.4rem;
-  color: #333;
+  color: #444;
 }
 
 .about-page strong {
-  color: #0056b3;
+  color: #1e88e5;
 }
 
 .about-page ul {
@@ -46,7 +46,7 @@
 }
 
 .about-page ul li {
-  font-size: 1rem; /* decreased from 1.15rem */
+  font-size: 1rem;
   margin-bottom: 0.9rem;
   padding-left: 34px;
   position: relative;
@@ -59,34 +59,34 @@
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 1.3rem; /* slightly smaller */
+  font-size: 1.3rem;
   user-select: none;
 }
 
 .credit {
   margin-top: 3.2rem;
   font-style: italic;
-  color: #666;
+  color: #888;
   text-align: center;
-  font-size: 0.9rem; /* slightly smaller */
+  font-size: 0.9rem;
 }
 
 @media (max-width: 600px) {
   .about-page {
     margin: 2rem 1rem;
     padding: 1.5rem 1rem;
-    font-size: 13px; /* adjust for mobile */
+    font-size: 13px;
   }
 
   .about-page h1 {
-    font-size: 1.8rem; /* decreased */
+    font-size: 1.8rem;
   }
 
   .about-page h2 {
-    font-size: 1.2rem; /* decreased */
+    font-size: 1.2rem;
   }
 
   .about-page ul li {
-    font-size: 0.9rem; /* fix incomplete */
+    font-size: 0.9rem;
   }
 }

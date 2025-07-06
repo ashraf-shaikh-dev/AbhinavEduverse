@@ -41,8 +41,10 @@ export default function StudentDashboard() {
     <div className="courses-page">
       <div className="courses-header">
         <h1>Welcome, {user?.firstName || 'Student'} 👋</h1>
-        <p className="meta">Your enrolled courses:</p>
+        
       </div>
+
+      <p className="meta">Your enrolled courses:</p>
 
       {loading && <p className="meta">Loading...</p>}
       {error && <p className="meta" style={{ color: 'red' }}>{error}</p>}
