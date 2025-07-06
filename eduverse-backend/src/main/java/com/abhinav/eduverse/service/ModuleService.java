@@ -19,6 +19,8 @@ import com.abhinav.eduverse.repository.EnrollmentRepository;
 import com.abhinav.eduverse.repository.ModuleProgressRepository;
 import com.abhinav.eduverse.repository.ModuleRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class ModuleService {
 
@@ -31,30 +33,20 @@ public class ModuleService {
 	
 
 	public Module addModule(ModuleDTO moduleDTO) {
-		Course course = courseRepository.findById(moduleDTO.getCourseId())
-				.orElseThrow(() -> new RuntimeException("Course not found"));
+	    Course course = courseRepository.findById(moduleDTO.getCourseId())
+	            .orElseThrow(() -> new EntityNotFoundException("Course not found with id: " + moduleDTO.getCourseId()));
 
-		Module module = new Module(moduleDTO.getTitle(), moduleDTO.getContent(), moduleDTO.getVideoUrl(),
-				moduleDTO.getModuleOrder(), course);
+	    Module module = new Module(moduleDTO.getTitle(), moduleDTO.getContent(), moduleDTO.getVideoUrl(),
+	            moduleDTO.getModuleOrder(), course);
 
-		return moduleRepository.save(module);
+	    return moduleRepository.save(module);
 	}
 
 	public List<Module> getModulesByCourseId(Long courseId) {
 		return moduleRepository.findByCourseIdOrderByModuleOrderAsc(courseId);
 	}
 
-	public Module addModule(Module module) {
-		Long courseId = module.getCourse() != null ? module.getCourse().getId() : null;
-		if (courseId == null) {
-			throw new IllegalArgumentException("Course ID must not be null");
-		}
 
-		Course course = courseRepository.findById(courseId).orElseThrow(() -> new RuntimeException("Course not found"));
-
-		module.setCourse(course);
-		return moduleRepository.save(module);
-	}
 
 	public Module updateModule(Long id, Module updatedModule) {
 		Module existingModule = moduleRepository.findById(id)

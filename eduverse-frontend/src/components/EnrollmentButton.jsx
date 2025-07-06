@@ -11,7 +11,12 @@ export default function EnrollButton({ courseId }) {
   const [loading, setLoading] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true);
 
-  console.log("EnrollButton received courseId:", courseId); // ✅ Debug
+  useEffect(() => {
+    if (!isLoggedIn || user?.role !== 'STUDENT') {
+      navigate('/login');
+      return;
+    }
+  }, [isLoggedIn, user, navigate]);
 
   useEffect(() => {
     if (!courseId || !user?.id || !isLoggedIn) {
