@@ -1,15 +1,17 @@
 .course-container {
   display: flex;
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
   padding: 20px;
   font-family: "Segoe UI", sans-serif;
   color: #222;
+  gap: 30px;
 }
 
 .course-left {
   flex: 2;
-  margin-right: 30px;
+  min-width: 300px;
 }
 
 .course-left iframe {
@@ -55,6 +57,7 @@
 
 .course-right {
   flex: 1;
+  min-width: 280px;
   border-left: 1px solid #e0e0e0;
   padding-left: 25px;
 }
@@ -92,4 +95,28 @@
 .module-button.completed {
   color: #8228c4;
   font-weight: bold;
+}
+
+/* --------------------------- */
+/* Responsive for tablets/mobiles */
+@media (max-width: 768px) {
+  .course-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .course-right {
+    border-left: none;
+    border-top: 1px solid #e0e0e0;
+    padding-left: 0;
+    padding-top: 20px;
+  }
+
+  .course-left iframe {
+    height: 250px;
+  }
+
+  .course-button {
+    width: 100%;
+  }
 }
