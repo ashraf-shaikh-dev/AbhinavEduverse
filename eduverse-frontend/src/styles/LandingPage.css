@@ -131,12 +131,123 @@
 }
 
 /* Responsive tweaks */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2rem;
+@media (max-width: 1024px) {
+  .overlay {
+    padding: 30px;
+    max-width: 90%;
   }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
   .features {
-    flex-direction: column;
     gap: 20px;
   }
+
+  .feature-card {
+    max-width: 250px;
+  }
+
+  .cta-btn {
+    width: 240px;
+  }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+  }
+
+  .overlay {
+    padding: 25px;
+    border-radius: 12px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-btn {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    font-size: 1rem;
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-btn,
+  .cta-btn {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+    width: 100%;
+  }
+
+  .features-section {
+    padding: 40px 15px;
+  }
+
+  .cta-section {
+    padding: 40px 15px;
+  }
+
+  .feature-card img {
+    height: 100px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+}
+
