@@ -33,5 +33,3 @@ public interface  ModuleProgressRepository extends JpaRepository<ModuleProgress,
 }
 
 	
-
-}

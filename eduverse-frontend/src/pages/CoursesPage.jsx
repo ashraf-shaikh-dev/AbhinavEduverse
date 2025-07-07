@@ -3,6 +3,8 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import "../styles/CoursesPage.css";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function CoursesPage() {
   const [courses, setCourses] = useState([]);
@@ -13,6 +15,8 @@ export default function CoursesPage() {
 
   // Fetch all courses on mount
   useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+
     const fetchCourses = async () => {
       try {
         const res = await axios.get("http://localhost:8080/api/courses/all");
@@ -56,6 +60,7 @@ export default function CoursesPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
+            data-aos="fade-up"
           >
             <img
               className="course-thumb"

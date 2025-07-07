@@ -74,3 +74,33 @@
 .enroll-btn:hover {
   background: #3d4fd0;
 }
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .courses-page {
+    padding: 30px 15px;
+  }
+
+  .courses-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .courses-header input {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  .course-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .course-info p,
+  .meta {
+    font-size: 0.85rem;
+  }
+
+  .enroll-btn {
+    font-size: 0.95rem;
+    padding: 9px 14px;
+  }
+}
