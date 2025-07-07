@@ -31,7 +31,7 @@ AbhinavEduverse/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/AbhinavEduverse.git
+git clone https://github.com/ashraf-shaikh-dev/AbhinavEduverse.git
 cd AbhinavEduverse
 ```
 
