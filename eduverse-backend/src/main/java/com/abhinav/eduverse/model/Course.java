@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -99,6 +100,16 @@ public class Course {
 
 	public void setTeacher(User teacher) {
 		this.teacher = teacher;
+	}
+	
+	@JsonProperty("totalModules")
+	public int getTotalModules() {
+	    return modules != null ? modules.size() : 0;
+	}
+
+	@JsonProperty("enrolledStudents")
+	public int getEnrolledStudents() {
+	    return enrollments != null ? enrollments.size() : 0;
 	}
 	
 	

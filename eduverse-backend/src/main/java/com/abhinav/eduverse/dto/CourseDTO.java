@@ -7,12 +7,14 @@ public class CourseDTO {
 	private String thumbnailUrl;
 	private Long teacherId;
 	private int totalModules;
-	
+	private int enrolledStudents;
+
 	// Default Constructor
-	
-	public CourseDTO() {}
-	
-	//Constructor with arguments
+
+	public CourseDTO() {
+	}
+
+	// Constructor with arguments
 
 	public CourseDTO(String title, String description, String thumbnailUrl, Long teacherId, int totalModules) {
 		super();
@@ -22,8 +24,8 @@ public class CourseDTO {
 		this.teacherId = teacherId;
 		this.totalModules = totalModules;
 	}
-	
-	//Getters and Setters
+
+	// Getters and Setters
 
 	public int getTotalModules() {
 		return totalModules;
@@ -73,9 +75,12 @@ public class CourseDTO {
 		this.id = id;
 	}
 
-	
-	
-	
-	
+	public int getEnrolledStudents() {
+		return enrolledStudents;
+	}
+
+	public void setEnrolledStudents(int enrolledStudents) {
+		this.enrolledStudents = enrolledStudents;
+	}
 
 }
