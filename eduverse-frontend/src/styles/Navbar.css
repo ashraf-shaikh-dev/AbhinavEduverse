@@ -1,8 +1,9 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
 .navbar {
-  background-color: #ffffff; /* white background */
+  background-color: #ffffff;
   color: #333;
   display: flex;
   justify-content: space-between;
@@ -59,5 +60,61 @@
 
 .navbar-links li button.logout-btn:hover {
   color: #007bff;
-  
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: #007bff;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ffffff;
+    width: 60%;
+    max-width: 260px;
+    height: 100vh;
+    padding: 3rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    z-index: 1001;
+  }
+
+  .navbar-links.active {
+    transform: translateX(0%);
+  }
+
+  .navbar-links li {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .navbar-links li a,
+  .navbar-links li button.logout-btn {
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .navbar-links li:last-child a,
+  .navbar-links li:last-child button.logout-btn {
+    border-bottom: none;
+  }
 }
