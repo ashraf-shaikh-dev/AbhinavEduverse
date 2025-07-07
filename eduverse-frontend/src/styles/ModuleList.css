@@ -75,7 +75,7 @@
 }
 
 .expand-btn:hover {
-  color: #194a9f;
+  color: #fff;
 }
 
 .module-body {
@@ -178,8 +178,8 @@ iframe {
 
 .btn-back {
   margin-top: 2rem;
-  background-color: #e0e0e0;
-  color: #444;
+  background-color: #2a6ebb;
+  color: #ffff;
   border: none;
   padding: 0.6rem 1.3rem;
   border-radius: 5px;
@@ -189,7 +189,7 @@ iframe {
 }
 
 .btn-back:hover {
-  background-color: #cfcfcf;
+  background-color: #194a9f;
 }
 
 /* Responsive */
