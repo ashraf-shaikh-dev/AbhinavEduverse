@@ -1,91 +1,95 @@
+/* Container for the edit course form */
 .edit-course-form {
-  max-width: 700px;
-  margin: 3rem auto;
-  padding: 2.5rem 3rem;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #222;
-  box-sizing: border-box;
+  max-width: 700px;                  /* Limit the width for readability */
+  margin: 3rem auto;                 /* Center horizontally with vertical spacing */
+  padding: 2.5rem 3rem;              /* Inner space for comfort */
+  background: #ffffff;               /* White background */
+  border-radius: 16px;               /* Rounded corners */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06); /* Soft shadow for depth */
+  display: flex;                    /* Use flexbox for layout */
+  flex-direction: column;            /* Stack children vertically */
+  gap: 1.8rem;                      /* Space between form elements */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean readable font */
+  color: #222;                      /* Dark text color */
+  box-sizing: border-box;           /* Include padding and border in element's total width */
 }
 
-/* Label styling */
+/* Styling for all labels in the form */
 .edit-course-form label {
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  display: block;
-  color: #333;
+  font-weight: 600;                 /* Semi-bold font */
+  margin-bottom: 0.4rem;            /* Space below label */
+  display: block;                   /* Make label take full line */
+  color: #333;                     /* Slightly lighter dark color */
 }
 
-/* Input and Textarea Styling */
+/* Inputs and textarea styling */
 .edit-course-form input[type="text"],
 .edit-course-form textarea {
-  font-size: 1rem;
-  padding: 0.8rem 1rem;
-  border: 1.5px solid #ddd;
-  border-radius: 10px;
-  background-color: #fafafa;
-  transition: all 0.3s ease;
-  width: 100%;
-  resize: vertical;
+  font-size: 1rem;                 /* Comfortable font size */
+  padding: 0.8rem 1rem;            /* Padding inside inputs */
+  border: 1.5px solid #ddd;        /* Light border */
+  border-radius: 10px;             /* Rounded corners */
+  background-color: #fafafa;       /* Light gray background */
+  transition: all 0.3s ease;       /* Smooth transition for focus effects */
+  width: 100%;                    /* Full width inside container */
+  resize: vertical;               /* Allow textarea vertical resizing only */
 }
 
+/* Focus state for inputs and textarea */
 .edit-course-form input[type="text"]:focus,
 .edit-course-form textarea:focus {
-  border-color: #f05a28;
-  background-color: #fff;
-  box-shadow: 0 0 6px rgba(240, 90, 40, 0.2);
-  outline: none;
+  border-color: #f05a28;           /* Bright orange border */
+  background-color: #fff;          /* White background on focus */
+  box-shadow: 0 0 6px rgba(240, 90, 40, 0.2); /* Subtle orange glow */
+  outline: none;                  /* Remove default outline */
 }
 
-/* Thumbnail preview if needed */
+/* Thumbnail image preview */
 .thumbnail-preview {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-top: 1rem;
+  width: 100%;                   /* Full width */
+  max-height: 200px;             /* Max height to keep it neat */
+  object-fit: cover;             /* Crop image nicely */
+  border-radius: 10px;           /* Rounded corners */
+  margin-top: 1rem;              /* Space above preview */
 }
 
-/* Buttons wrapper */
+/* Button container to align buttons */
 .button-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-  margin-top: 1rem;
+  display: flex;                 /* Flex layout */
+  gap: 1rem;                    /* Space between buttons */
+  justify-content: flex-end;     /* Align buttons to right */
+  margin-top: 1rem;             /* Space above buttons */
 }
 
-/* Buttons */
+/* General button styles */
 .edit-course-form button {
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.8rem 2rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: 600;             /* Semi-bold */
+  font-size: 1rem;              /* Normal readable size */
+  padding: 0.8rem 2rem;          /* Comfortable padding */
+  border-radius: 10px;           /* Rounded corners */
+  border: none;                 /* No border */
+  cursor: pointer;              /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background transition */
 }
 
-/* Save button - vibrant orange */
+/* Save button with vibrant orange color */
 .btn-save {
-  background-color: #5a67d8;
-  color: white;
+  background-color: #5a67d8;    /* Purple-ish color */
+  color: white;                 /* White text */
 }
 
+/* Save button hover effect */
 .btn-save:hover {
-  background-color: #434190;
+  background-color: #434190;    /* Darker purple on hover */
 }
 
-/* Cancel button - subtle gray */
+/* Cancel button with subtle gray */
 .btn-cancel {
-  background-color: #e0e0e0;
-  color: #333;
+  background-color: #e0e0e0;    /* Light gray background */
+  color: #333;                  /* Darker gray text */
 }
 
+/* Cancel button hover effect */
 .btn-cancel:hover {
-  background-color: #c6c6c6;
+  background-color: #c6c6c6;    /* Slightly darker gray */
 }

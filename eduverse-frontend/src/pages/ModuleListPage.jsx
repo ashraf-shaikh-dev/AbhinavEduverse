@@ -4,20 +4,22 @@ import ModuleList from "../components/ModuleList";
 import axios from "axios";
 
 export default function ModuleListPage() {
-  const { courseId } = useParams();
-  const [modules, setModules] = useState([]);
-  const navigate = useNavigate();
+  const { courseId } = useParams(); // Get courseId from URL parameters
+  const [modules, setModules] = useState([]); // Store list of modules here
+  const navigate = useNavigate(); // For navigation (going back etc)
 
-  // ✅ Wrap fetchModules in useCallback to avoid ESLint warning
+  // Function to fetch modules for the given course from backend
+  // useCallback so useEffect only runs when courseId changes
   const fetchModules = useCallback(async () => {
     try {
       const res = await axios.get(`http://localhost:8080/api/modules/course/${courseId}`);
-      setModules(res.data);
+      setModules(res.data); // Save fetched modules in state
     } catch {
-      alert("Failed to fetch modules");
+      alert("Failed to fetch modules"); // Show error if request fails
     }
-  }, [courseId]);
+  }, [courseId]); // Dependency - refetch if courseId changes
 
+  // Run fetchModules once when component mounts or courseId changes
   useEffect(() => {
     fetchModules();
   }, [fetchModules]); 
@@ -25,7 +27,10 @@ export default function ModuleListPage() {
   return (
     <div className="module-list-page">
       <h2>Modules</h2>
+      {/* Pass modules and refresh function to ModuleList component */}
       <ModuleList modules={modules} onDelete={fetchModules} />
+      
+      {/* Back button to go to previous page */}
       <button className="btn-back" onClick={() => navigate(-1)}>Back</button>
     </div>
   );

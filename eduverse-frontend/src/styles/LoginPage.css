@@ -1,93 +1,102 @@
-/* LoginPage.css */
-
+/* Container for the whole login box */
 .container {
-  max-width: 400px;
-  margin: 5vh auto;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
+  max-width: 400px;                    /* Limit max width for good readability */
+  margin: 5vh auto;                   /* Center horizontally, with vertical margin */
+  padding: 2rem;                      /* Inner space */
+  background-color: #ffffff;          /* White background */
+  border-radius: 12px;                /* Rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Subtle shadow around box */
+  text-align: center;                 /* Center text inside */
+  font-family: 'Poppins', sans-serif; /* Use Poppins font */
 }
 
+/* Main heading on the page */
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #1e293b;
+  font-size: 1.8rem;                  /* Large font size */
+  margin-bottom: 1rem;                /* Space below */
+  color: #1e293b;                     /* Dark blueish color */
 }
 
+/* The form itself - stack inputs vertically */
 form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;             /* Vertical stacking */
 }
 
+/* Style for all input fields */
 input {
-  padding: 12px 16px;
-  margin: 10px 0;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: border-color 0.3s;
+  padding: 12px 16px;                 /* Space inside input */
+  margin: 10px 0;                     /* Vertical spacing between inputs */
+  font-size: 1rem;                   /* Normal readable size */
+  border: 1px solid #ccc;             /* Light gray border */
+  border-radius: 8px;                 /* Rounded edges */
+  transition: border-color 0.3s;     /* Smooth border color transition */
 }
 
+/* When input is focused (clicked or tabbed in) */
 input:focus {
-  border-color: #3b82f6;
-  outline: none;
+  border-color: #3b82f6;             /* Bright blue border */
+  outline: none;                     /* Remove default outline */
 }
 
+/* Style the submit button */
 button {
   padding: 12px 16px;
-  background-color: #3b82f6;
-  color: white;
+  background-color: #3b82f6;          /* Bright blue background */
+  color: white;                      /* White text */
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 600;                  /* Semi-bold */
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
+  cursor: pointer;                   /* Pointer cursor on hover */
+  margin-top: 10px;                  /* Space above button */
+  transition: background-color 0.3s ease; /* Smooth background change */
 }
 
+/* Darker blue on hover for button */
 button:hover {
   background-color: #2563eb;
 }
 
+/* Style for error messages */
 .error-text {
-  color: #e11d48;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  color: #e11d48;                   /* Bright red */
+  font-size: 0.95rem;               /* Slightly smaller text */
+  margin-bottom: 1rem;              /* Space below the error */
 }
 
+/* Paragraph text below form, like links or info */
 p {
   margin-top: 1rem;
   font-size: 0.95rem;
 }
 
+/* Links inside paragraph */
 p a {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: 500;
+  color: #3b82f6;                  /* Blue color */
+  text-decoration: none;           /* Remove underline */
+  font-weight: 500;                /* Medium weight */
 }
 
+/* Underline on hover for links */
 p a:hover {
   text-decoration: underline;
 }
 
-/* Responsive tweaks */
+/* Responsive styles for smaller screens */
 @media (max-width: 500px) {
   .container {
-    margin: 4rem 1rem;
-    padding: 1.5rem;
+    margin: 4rem 1rem;             /* Smaller margin left and right */
+    padding: 1.5rem;               /* Smaller padding */
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem;             /* Smaller heading on small devices */
   }
 
   input,
   button {
-    font-size: 0.95rem;
-    padding: 10px 14px;
+    font-size: 0.95rem;            /* Slightly smaller font size */
+    padding: 10px 14px;            /* Smaller padding for inputs and button */
   }
 }

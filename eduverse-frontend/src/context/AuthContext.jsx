@@ -1,19 +1,22 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Create a new context for authentication
 const AuthContext = createContext();
 
+// This component provides the authentication context to the rest of the app
 export const AuthProvider = ({ children }) => {
-  // Initialize state from localStorage (if available)
+  // Check if user is already logged in by reading from localStorage
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem('isLoggedIn') === 'true';
   });
 
+  // Load user details from localStorage if available
   const [user, setUser] = useState(() => {
     const storedUser = localStorage.getItem('user');
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
-  // Sync changes to localStorage
+  // Whenever isLoggedIn or user changes, update localStorage
   useEffect(() => {
     localStorage.setItem('isLoggedIn', isLoggedIn);
     if (user) {
@@ -23,18 +26,19 @@ export const AuthProvider = ({ children }) => {
     }
   }, [isLoggedIn, user]);
 
-  // Login function to update state
+  // Function to log in a user and save their data
   const login = (userData) => {
     setUser(userData);
     setIsLoggedIn(true);
   };
 
-  // Logout function to clear state
+  // Function to log out the user and clear their data
   const logout = () => {
     setUser(null);
     setIsLoggedIn(false);
   };
 
+  // The actual value passed to all components that use this context
   return (
     <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
       {children}
@@ -42,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Hook to use AuthContext in components
+// Custom hook to use the AuthContext inside components
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

@@ -1,35 +1,40 @@
+/* Container for the module form */
 .module-form {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  margin-top: 2rem; /* Space above the form */
+  padding: 1rem; /* Inner padding */
+  background: #fff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1); /* Light shadow for subtle depth */
 }
 
+/* Inputs and textareas inside the form */
 .module-form input,
 .module-form textarea {
-  width: 100%;
-  margin: 0.5rem 0;
-  padding: 0.5rem;
+  width: 100%; /* Take full width of container */
+  margin: 0.5rem 0; /* Vertical spacing between inputs */
+  padding: 0.5rem; /* Padding inside input fields */
 }
 
+/* Submit button inside the module form */
 .module-form button {
-  padding: 0.6rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  padding: 0.6rem 1rem; /* Padding inside button */
+  background-color: #007bff; /* Bootstrap blue color */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 6px; /* Slightly rounded corners */
+  cursor: pointer; /* Cursor pointer on hover */
 }
 
+/* List container for modules */
 .module-list ul {
-  list-style: none;
-  padding-left: 0;
+  list-style: none; /* Remove default bullets */
+  padding-left: 0; /* Remove left padding */
 }
 
+/* Individual module list items */
 .module-list li {
-  margin-bottom: 1rem;
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 8px;
+  margin-bottom: 1rem; /* Space below each list item */
+  background: #f9f9f9; /* Light gray background */
+  padding: 1rem; /* Padding inside each module item */
+  border-radius: 8px; /* Rounded corners for each item */
 }

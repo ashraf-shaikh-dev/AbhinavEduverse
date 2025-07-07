@@ -1,92 +1,93 @@
 .about-page {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-  line-height: 1.65;
-  font-size: 14px;
+  max-width: 900px;              /* Limit content width for readability */
+  margin: 3rem auto;             /* Center horizontally with top/bottom spacing */
+  padding: 2rem;                 /* Inner spacing all around */
+  font-family: 'Poppins', sans-serif; /* Clean modern font */
+  color: #333;                  /* Dark gray text color for easy reading */
+  background: #fff;              /* White background */
+  border-radius: 12px;           /* Rounded corners for a softer look */
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  line-height: 1.65;             /* Comfortable spacing between lines */
+  font-size: 14px;               /* Base font size */
 }
 
 .about-page h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #2a6ebb;
-  text-align: center;
-  margin-bottom: 1.5rem;
+  font-size: 2.2rem;             /* Large heading size */
+  font-weight: 700;              /* Bold text */
+  color: #2a6ebb;                /* Blue color to stand out */
+  text-align: center;            /* Center heading text */
+  margin-bottom: 1.5rem;         /* Space below heading */
 }
 
 .about-page h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #1e88e5;
-  margin-top: 2.8rem;
-  margin-bottom: 1rem;
-  padding-left: 12px;
-  border-left: 5px solid #2a6ebb;
+  font-size: 1.4rem;             /* Medium heading size */
+  font-weight: 600;              /* Semi-bold */
+  color: #1e88e5;                /* Slightly lighter blue */
+  margin-top: 2.8rem;            /* Space above subheading */
+  margin-bottom: 1rem;           /* Space below subheading */
+  padding-left: 12px;            /* Indent text from left */
+  border-left: 5px solid #2a6ebb; /* Blue vertical bar for emphasis */
 }
 
 .about-page p {
-  font-size: 1rem;
-  margin-bottom: 1.4rem;
-  color: #444;
+  font-size: 1rem;               /* Normal paragraph font size */
+  margin-bottom: 1.4rem;         /* Space after paragraphs */
+  color: #444;                   /* Slightly lighter dark text */
 }
 
 .about-page strong {
-  color: #1e88e5;
+  color: #1e88e5;                /* Highlighted text in blue */
 }
 
 .about-page ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 1.7rem;
+  list-style: none;              /* Remove default bullets */
+  padding-left: 0;               /* Remove left padding */
+  margin-bottom: 1.7rem;         /* Space below the list */
 }
 
 .about-page ul li {
-  font-size: 1rem;
-  margin-bottom: 0.9rem;
-  padding-left: 34px;
-  position: relative;
-  font-weight: 500;
-  color: #222;
+  font-size: 1rem;               /* Normal list item size */
+  margin-bottom: 0.9rem;         /* Space between items */
+  padding-left: 34px;            /* Indent text to make space for emoji */
+  position: relative;            /* For positioning the emoji */
+  font-weight: 500;              /* Medium weight text */
+  color: #222;                   /* Slightly darker text */
 }
 
 .about-page ul li::before {
-  content: attr(data-emoji);
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 1.3rem;
-  user-select: none;
+  content: attr(data-emoji);    /* Emoji specified in HTML attribute */
+  position: absolute;            /* Position emoji absolutely */
+  left: 0;                      /* Align emoji to left edge */
+  top: 0;                       /* Align emoji to top of list item */
+  font-size: 1.3rem;            /* Emoji size */
+  user-select: none;            /* Prevent emoji text selection */
 }
 
 .credit {
-  margin-top: 3.2rem;
-  font-style: italic;
-  color: #888;
-  text-align: center;
-  font-size: 0.9rem;
+  margin-top: 3.2rem;            /* Space above credit text */
+  font-style: italic;            /* Italic style */
+  color: #888;                   /* Light gray text */
+  text-align: center;            /* Center text */
+  font-size: 0.9rem;             /* Smaller font size */
 }
 
+/* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
   .about-page {
-    margin: 2rem 1rem;
-    padding: 1.5rem 1rem;
-    font-size: 13px;
+    margin: 2rem 1rem;           /* Smaller margins on mobile */
+    padding: 1.5rem 1rem;        /* Less padding on mobile */
+    font-size: 13px;             /* Slightly smaller font size */
   }
 
   .about-page h1 {
-    font-size: 1.8rem;
+    font-size: 1.8rem;           /* Smaller main heading on mobile */
   }
 
   .about-page h2 {
-    font-size: 1.2rem;
+    font-size: 1.2rem;           /* Smaller subheading on mobile */
   }
 
   .about-page ul li {
-    font-size: 0.9rem;
+    font-size: 0.9rem;           /* Smaller list text on mobile */
   }
 }

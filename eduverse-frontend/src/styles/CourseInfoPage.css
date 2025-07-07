@@ -1,77 +1,76 @@
 .course-info-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column; /* Stack vertically */
-  align-items: center;
-  gap: 1.5rem;
+  max-width: 900px;                  /* Limits width for readability */
+  margin: 2rem auto;                 /* Centers container with vertical spacing */
+  padding: 1rem;                    /* Inner space around content */
+  background: #fff;                 /* White background */
+  border-radius: 8px;              /* Rounded corners for smooth look */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+  display: flex;                   /* Use flexbox layout */
+  flex-direction: column;          /* Stack items vertically */
+  align-items: center;             /* Center items horizontally */
+  gap: 1.5rem;                    /* Space between child elements */
 }
 
 .course-thumbnail {
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  width: 100%;                    /* Full width of container */
+  max-width: 600px;               /* Max width so image isn’t too large */
+  height: 300px;                  /* Fixed height for consistency */
+  object-fit: cover;              /* Image covers area without distortion */
+  border-radius: 8px;             /* Rounded corners on image */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15); /* Slight shadow under image */
+  transition: transform 0.3s ease;  /* Smooth animation on hover */
 }
 
 .course-thumbnail:hover {
-  transform: scale(1.03);
+  transform: scale(1.03);         /* Slight zoom effect when hovered */
 }
 
 .course-details {
-  width: 100%;
-  text-align: center;
+  width: 100%;                   /* Full width inside container */
+  text-align: center;            /* Center text */
 }
 
 .course-details h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #222;
+  font-size: 2rem;              /* Large title text */
+  margin-bottom: 0.5rem;        /* Space below heading */
+  color: #222;                  /* Dark gray text color */
 }
 
 .course-details p {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 1rem;
+  font-size: 1.1rem;            /* Easy to read paragraph size */
+  color: #444;                  /* Medium gray text */
+  margin-bottom: 1rem;          /* Space below paragraph */
 }
 
 .course-details strong {
-  color: #111;
+  color: #111;                  /* Darker text for emphasis */
 }
 
 .course-details button {
-  margin: 0.4rem 0.6rem;
-  padding: 0.6rem 1.4rem;
-  font-size: 1rem;
-  background-color: #5a67d8; /* Udemy-like purple */
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.25s ease;
+  margin: 0.4rem 0.6rem;          /* Spacing around button */
+  padding: 0.6rem 1.4rem;         /* Button padding */
+  font-size: 1rem;                /* Comfortable button text size */
+  background-color: #5a67d8;      /* Purple background (Udemy style) */
+  color: white;                   /* White button text */
+  border: none;                  /* No border */
+  border-radius: 6px;            /* Rounded corners on button */
+  cursor: pointer;               /* Pointer cursor on hover */
+  transition: background-color 0.25s ease; /* Smooth hover effect */
 }
 
 .course-details button:hover {
-  background-color: #434190;
+  background-color: #434190;     /* Darker purple on hover */
 }
 
 .course-description {
-  white-space: pre-wrap;
-  font-family: inherit;
-  line-height: 1.6;
-  color: #333;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 1rem 0;
-  text-align: left;
-  padding: 50px;
+  white-space: pre-wrap;         /* Keep line breaks and spaces */
+  font-family: inherit;          /* Use container’s font */
+  line-height: 1.6;              /* Line spacing for readability */
+  color: #333;                   /* Dark gray text */
+  background: none;              /* No background */
+  border: none;                 /* No border */
+  padding: 0;                   /* No padding by default */
+  margin: 1rem 0;               /* Vertical margin around description */
+  text-align: left;             /* Align text to left */
+  padding: 50px;                /* Large padding inside description */
 }
-

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styles/CreateCourse.css';  // Import external CSS
+import '../styles/CreateCourse.css';  // Import CSS for styling
 
 export default function CreateCourse() {
-  // State to hold form inputs
+  // Form data state for course info
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -12,24 +12,26 @@ export default function CreateCourse() {
     teacherId: ''
   });
 
-  // State for loading and error messages
+  // Loading state to disable button while submitting
   const [loading, setLoading] = useState(false);
+  // Error message state to show backend errors
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
-  // On mount, get teacherId from logged-in user stored in localStorage
+  // On component mount, get logged-in user and set teacherId
   useEffect(() => {
     const userStr = localStorage.getItem('user');
     if (userStr) {
       const user = JSON.parse(userStr);
       if (user?.id) {
+        // Set teacherId in form data from logged-in user
         setFormData(prev => ({ ...prev, teacherId: user.id }));
       }
     }
   }, []);
 
-  // Update state when input fields change
+  // Update form data on input changes
   const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
@@ -37,22 +39,23 @@ export default function CreateCourse() {
     }));
   };
 
-  // Handle form submission to backend API
+  // Handle form submit: call backend API to create course
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
+    setLoading(true);  // Start loading
+    setError('');      // Clear previous error
+
     try {
-      // Convert teacherId to number before sending
+      // Ensure teacherId is a number before sending
       const payload = { ...formData, teacherId: Number(formData.teacherId) };
       await axios.post('http://localhost:8080/api/courses/create', payload);
       alert('Course created successfully!');
-      navigate('/teacher/dashboard');
+      navigate('/teacher/dashboard'); // Redirect to dashboard after success
     } catch (err) {
-      // Show backend error message or generic message
+      // Show error from backend if available, else generic error
       setError(err.response?.data?.message || 'Failed to create course');
     } finally {
-      setLoading(false);
+      setLoading(false); // Stop loading
     }
   };
 
@@ -92,7 +95,7 @@ export default function CreateCourse() {
           placeholder="Enter thumbnail image URL"
         />
 
-        {/* Hidden teacherId field */}
+        {/* Hidden input to keep teacherId */}
         <input
           name="teacherId"
           type="hidden"
@@ -100,10 +103,10 @@ export default function CreateCourse() {
           readOnly
         />
 
-        {/* Display error message if exists */}
+        {/* Show error message if any */}
         {error && <p className="error-text">{error}</p>}
 
-        {/* Submit button disabled during loading */}
+        {/* Submit button disables during loading */}
         <button type="submit" disabled={loading} className="submit-btn">
           {loading ? 'Creating...' : 'Create Course'}
         </button>

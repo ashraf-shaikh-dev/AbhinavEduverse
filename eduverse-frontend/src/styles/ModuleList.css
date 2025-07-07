@@ -1,98 +1,112 @@
+/* Main container for the module list */
 .module-list {
-  max-width: 800px;
-  margin: 2rem auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #222;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
-  padding: 1.5rem 2rem;
+  max-width: 800px; /* Limit max width for readability */
+  margin: 2rem auto; /* Center horizontally with vertical margin */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean font */
+  color: #222; /* Dark text */
+  background: #fff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgb(0 0 0 / 0.1); /* Subtle shadow */
+  padding: 1.5rem 2rem; /* Padding inside container */
 }
 
+/* Heading for the module list */
 .module-list h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid #2a6ebb;
-  padding-bottom: 0.5rem;
-  color: #2a6ebb;
+  font-size: 1.8rem; /* Bigger font for heading */
+  margin-bottom: 1.5rem; /* Space below heading */
+  border-bottom: 2px solid #2a6ebb; /* Blue underline */
+  padding-bottom: 0.5rem; /* Space between text and border */
+  color: #2a6ebb; /* Blue color to match border */
 }
 
+/* Individual module container */
 .module-item {
-  border-bottom: 1px solid #ddd;
-  padding: 1rem 0;
-  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #ddd; /* Light bottom border */
+  padding: 1rem 0; /* Vertical padding */
+  transition: background-color 0.3s ease; /* Smooth hover background */
 }
 
+/* Remove border on last item */
 .module-item:last-child {
   border-bottom: none;
 }
 
+/* Hover effect for modules */
 .module-item:hover {
-  background-color: #f9faff;
+  background-color: #f9faff; /* Light blue background on hover */
 }
 
+/* Header inside each module, flex for space between title and button */
 .module-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
+  cursor: pointer; /* Show pointer to indicate clickable */
 }
 
+/* Title in module header */
 .module-header strong {
-  font-size: 1.3rem;
-  color: #1a1a1a;
-  flex-grow: 1;
+  font-size: 1.3rem; /* Slightly larger text */
+  color: #1a1a1a; /* Dark text */
+  flex-grow: 1; /* Take available space */
 }
 
+/* Module description styling */
 .module-description {
-   white-space: pre-wrap;
-  word-break: break-word; /* Wrap long words */
-  font-family: inherit;
-  line-height: 1.6;
-  color: #333;
-  margin-bottom: 1rem;
-  overflow-x: auto;
-  max-height: 400px; /* Limit height */
-  background-color: #f8f8f8;
-  padding: 1rem;
-  border-radius: 6px;
+  white-space: pre-wrap; /* Preserve line breaks */
+  word-break: break-word; /* Wrap long words nicely */
+  font-family: inherit; /* Use container font */
+  line-height: 1.6; /* Comfortable line spacing */
+  color: #333; /* Dark gray text */
+  margin-bottom: 1rem; /* Space below description */
+  overflow-x: auto; /* Horizontal scroll if content too wide */
+  max-height: 400px; /* Limit max height */
+  background-color: #f8f8f8; /* Light gray background */
+  padding: 1rem; /* Padding inside box */
+  border-radius: 6px; /* Rounded corners */
 }
 
+/* Button to expand/collapse module content */
 .expand-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.4rem;
-  color: #2a6ebb;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.3s ease;
-  width: 200px;    /* fixed width for consistent alignment */
-  height: 40px;
-  display: flex;
+  background: transparent; /* No background */
+  border: none; /* No border */
+  font-size: 1.4rem; /* Bigger text for icon or symbol */
+  color: #2a6ebb; /* Blue color */
+  cursor: pointer; /* Pointer on hover */
+  user-select: none; /* Prevent text selection */
+  transition: color 0.3s ease; /* Smooth color change */
+  width: 200px; /* Fixed width for alignment */
+  height: 40px; /* Fixed height */
+  display: flex; /* Flex for centering */
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 0; /* Remove default padding */
 }
 
+/* Hover effect for expand button */
 .expand-btn:hover {
-  color: #fff;
+  color: #fff; /* Change color on hover */
 }
 
+/* Collapsed content container */
 .module-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  margin-top: 0.5rem;
+  max-height: 0; /* Hidden by default */
+  overflow: hidden; /* Hide overflow */
+  transition: max-height 0.4s ease; /* Smooth expand/collapse */
+  margin-top: 0.5rem; /* Space above */
 }
 
+/* When module is expanded */
 .module-body.expanded {
-  max-height: 1000px; /* enough to show content */
+  max-height: 1000px; /* Enough space to show content */
 }
 
+/* Inner padding inside expanded content */
 .module-body-inner {
   padding-top: 1rem;
 }
 
+/* Paragraph styling inside module body */
 .module-body p {
   font-size: 1rem;
   line-height: 1.5;
@@ -100,32 +114,36 @@
   margin-bottom: 1rem;
 }
 
+/* Placeholder box for missing video */
 .no-video {
   width: 100%;
   height: 200px;
-  background-color: #eaeaea;
+  background-color: #eaeaea; /* Light gray background */
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #777;
+  color: #777; /* Gray italic text */
   font-style: italic;
   margin-bottom: 1rem;
 }
 
+/* Styling iframe (video player) */
 iframe {
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow */
   margin-bottom: 1rem;
 }
 
+/* Container for action buttons inside a module */
 .module-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1rem; /* Space between buttons */
 }
 
+/* Buttons style */
 .module-buttons button {
-  background-color: #2a6ebb;
+  background-color: #2a6ebb; /* Blue */
   color: white;
   border: none;
   padding: 0.5rem 1.3rem;
@@ -135,10 +153,12 @@ iframe {
   transition: background-color 0.25s ease;
 }
 
+/* Hover effect for buttons */
 .module-buttons button:hover {
   background-color: #194a9f;
 }
 
+/* Inputs and textarea inside edit module form */
 .edit-module-form input[type="text"],
 .edit-module-form textarea {
   width: 100%;
@@ -151,16 +171,18 @@ iframe {
   resize: vertical;
 }
 
+/* Set minimum height for textarea */
 .edit-module-form textarea {
   min-height: 80px;
 }
 
+/* Align buttons to the left inside edit form */
 .edit-module-form .module-buttons {
   justify-content: flex-start;
   margin-top: 0;
 }
 
-/* ModuleListPage buttons */
+/* Main container for the module list page */
 .module-list-page {
   max-width: 900px;
   margin: 2rem auto;
@@ -168,6 +190,7 @@ iframe {
   color: #222;
 }
 
+/* Heading for the module list page */
 .module-list-page h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
@@ -176,6 +199,7 @@ iframe {
   padding-bottom: 0.5rem;
 }
 
+/* Back button style */
 .btn-back {
   margin-top: 2rem;
   background-color: #2a6ebb;
@@ -188,22 +212,23 @@ iframe {
   transition: background-color 0.3s ease;
 }
 
+/* Back button hover effect */
 .btn-back:hover {
   background-color: #194a9f;
 }
 
-/* Responsive */
+/* Responsive styles for smaller screens */
 @media (max-width: 600px) {
   .module-list {
-    padding: 1rem 1.2rem;
+    padding: 1rem 1.2rem; /* Reduce padding */
   }
 
   .module-header strong {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Smaller font on mobile */
   }
 
   .module-buttons button {
     padding: 0.4rem 1rem;
-    font-size: 0.85rem;
+    font-size: 0.85rem; /* Smaller buttons */
   }
 }

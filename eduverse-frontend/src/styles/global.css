@@ -1,59 +1,61 @@
 /* Basic global styling for layout and inputs */
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif; /* Use Poppins font everywhere */
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  margin: 0;                        /* Remove default browser margin */
+  font-family: Arial, sans-serif;  /* Default font for body */
+  background-color: #f7f7f7;       /* Light gray background */
 }
 
 /* Centered form container */
 .container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 400px;                /* Max width of the form */
+  margin: 50px auto;               /* Center horizontally with space on top */
+  padding: 20px;                   /* Inner padding */
+  background: white;               /* White background */
+  border-radius: 8px;              /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Soft shadow for subtle depth */
 }
 
-/* Input, select, and button styles */
+/* Input fields, dropdowns, and buttons styling */
 input, select, button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  width: 100%;                    /* Full width */
+  padding: 10px;                  /* Comfortable padding inside */
+  margin-bottom: 12px;            /* Space below each element */
+  border: 1px solid #ccc;         /* Light gray border */
+  border-radius: 4px;             /* Slightly rounded corners */
+  box-sizing: border-box;         /* Include padding and border in width */
 }
 
-/* Button style */
+/* Button styling */
 button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
+  background-color: #007bff;      /* Bright blue background */
+  color: white;                   /* White text */
+  border: none;                   /* No border */
+  font-weight: bold;              /* Bold text */
+  cursor: pointer;                /* Pointer cursor on hover */
 }
 
-/* Optional: hover effect */
+/* Button hover effect */
 button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3;      /* Darker blue on hover */
 }
 
+/* Paragraphs inside container */
 .container p {
-  font-size: 14px;
-  text-align: center;
+  font-size: 14px;                /* Smaller font size */
+  text-align: center;             /* Centered text */
 }
 
+/* Links inside container */
 .container a {
-  color: #007bff;
-  text-decoration: none;
+  color: #007bff;                 /* Blue link color */
+  text-decoration: none;          /* No underline by default */
 }
 
+/* Link hover effect */
 .container a:hover {
-  text-decoration: underline;
+  text-decoration: underline;    /* Underline on hover */
 }
-

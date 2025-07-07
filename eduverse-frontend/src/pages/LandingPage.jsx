@@ -9,33 +9,38 @@ import certificate from '../assets/certificate.png';
 export default function LandingPage() {
   const navigate = useNavigate();
 
-  // Redirect to courses page
+  // When user clicks "Get Started" button, go to courses page
   const handleGetStarted = () => {
     navigate('/courses');
   };
 
-  // Redirect to signup page
+  // When user clicks "Join Now" button, go to signup page
   const handleJoinNow = () => {
     navigate('/signup');
   };
 
   return (
     <div className="landing-page">
-      {/* Hero Section */}
+
+      {/* Hero section with title, subtitle, and button */}
       <div className="hero">
         <motion.div
           className="overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0 }}        // Start invisible
+          animate={{ opacity: 1 }}        // Fade in to visible
+          transition={{ duration: 1 }}    // Take 1 second to fade
         >
           <h1 className="hero-title">Learn from the best. Anytime. Anywhere.</h1>
-          <p className="hero-subtitle">Join thousands of learners and instructors around the world.</p>
-          <button className="hero-btn" onClick={handleGetStarted}>Get Started</button>
+          <p className="hero-subtitle">
+            Join thousands of learners and instructors around the world.
+          </p>
+          <button className="hero-btn" onClick={handleGetStarted}>
+            Get Started
+          </button>
         </motion.div>
       </div>
 
-      {/* Features Section */}
+      {/* Features section highlighting platform benefits */}
       <section className="features-section">
         <h2>Why Choose Abhinav Eduverse?</h2>
         <div className="features">
@@ -57,10 +62,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action (CTA) section encouraging users to sign up */}
       <section className="cta-section">
         <h2>Start Your Learning Journey Today</h2>
-        <p>Whether you want to learn something new or teach others, Eduverse has a place for you.</p>
+        <p>
+          Whether you want to learn something new or teach others, Eduverse has a place for you.
+        </p>
         <button className="cta-btn" onClick={handleJoinNow}>Join Now</button>
       </section>
     </div>

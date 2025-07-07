@@ -1,50 +1,57 @@
+/* Apply Poppins font to everything */
 * {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Navbar container styling */
 .navbar {
-  background-color: #ffffff;
-  color: #333;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  align-items: center;
-  border-bottom: 1px solid #eaeaea;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  position: sticky;
+  background-color: #ffffff; /* White background */
+  color: #333; /* Dark text */
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between brand and links */
+  padding: 1rem 2rem; /* Padding inside navbar */
+  align-items: center; /* Vertically center items */
+  border-bottom: 1px solid #eaeaea; /* Light bottom border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  position: sticky; /* Sticks navbar at top when scrolling */
   top: 0;
-  z-index: 1000;
+  z-index: 1000; /* Stay on top of other elements */
 }
 
+/* Brand / Logo styling */
 .navbar-brand a {
-  color: #007bff;
-  text-decoration: none;
+  color: #007bff; /* Blue text */
+  text-decoration: none; /* Remove underline */
   font-weight: bold;
-  font-size: 1.8rem;
-  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.8rem; /* Bigger font for brand */
+  font-family: 'Segoe UI', sans-serif; /* Different font for brand */
 }
 
+/* Container for nav links */
 .navbar-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
+  list-style: none; /* Remove bullets */
+  display: flex; /* Horizontal layout */
+  gap: 2rem; /* Space between links */
+  margin: 0; /* Remove default margin */
 }
 
+/* Style for each link */
 .navbar-links li a {
   color: #333;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
   font-size: 1rem;
-  transition: color 0.3s;
+  transition: color 0.3s; /* Smooth color change on hover */
 }
 
+/* Hover effect on links */
 .navbar-links li a:hover {
-  color: #007bff;
+  color: #007bff; /* Blue on hover */
 }
 
+/* Logout button styled like a link */
 .navbar-links li button.logout-btn {
-  background: none;
-  border: none;
+  background: none; /* No button background */
+  border: none; /* No border */
   color: #333;
   font-size: 1rem;
   font-weight: 500;
@@ -58,61 +65,69 @@
   line-height: 1.5;
 }
 
+/* Hover effect for logout button */
 .navbar-links li button.logout-btn:hover {
   color: #007bff;
 }
 
+/* Hide menu toggle icon on desktop */
 .menu-toggle {
   display: none;
 }
 
-/* Responsive styles */
+/* Responsive styles for screens 768px and below */
 @media (max-width: 768px) {
+  /* Show menu toggle icon */
   .menu-toggle {
     display: block;
-    font-size: 2rem;
-    color: #007bff;
+    font-size: 2rem; /* Big hamburger icon */
+    color: #007bff; /* Blue */
     cursor: pointer;
-    z-index: 1100;
+    z-index: 1100; /* Above navbar */
   }
 
+  /* Mobile nav menu styles */
   .navbar-links {
-    position: fixed;
+    position: fixed; /* Fixed on right */
     top: 0;
     right: 0;
-    background-color: #ffffff;
-    width: 60%;
-    max-width: 260px;
-    height: 100vh;
-    padding: 3rem 1.5rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    background-color: #ffffff; /* White background */
+    width: 60%; /* Take 60% of screen width */
+    max-width: 260px; /* Max width limit */
+    height: 100vh; /* Full screen height */
+    padding: 3rem 1.5rem; /* Padding inside */
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start; /* Align left */
+    gap: 1.5rem; /* Space between links */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); /* Shadow on left */
+    transform: translateX(100%); /* Hide menu off-screen by default */
+    transition: transform 0.3s ease-in-out; /* Smooth slide */
     display: flex;
-    z-index: 1001;
+    z-index: 1001; /* Above other elements */
   }
 
+  /* When menu is active, slide it in */
   .navbar-links.active {
     transform: translateX(0%);
   }
 
+  /* Each nav item full width */
   .navbar-links li {
     width: 100%;
     padding: 0.5rem 0;
   }
 
+  /* Mobile nav links full width and left-aligned */
   .navbar-links li a,
   .navbar-links li button.logout-btn {
     width: 100%;
     text-align: left;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Slightly bigger font */
     padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee; /* Divider between items */
   }
 
+  /* Remove border for last nav item */
   .navbar-links li:last-child a,
   .navbar-links li:last-child button.logout-btn {
     border-bottom: none;

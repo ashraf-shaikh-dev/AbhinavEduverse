@@ -3,14 +3,16 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
+// This component shows an "Enroll" button for students
 export default function EnrollButton({ courseId }) {
-  const { user, isLoggedIn } = useAuth();
+  const { user, isLoggedIn } = useAuth(); // Get logged-in user info
   const navigate = useNavigate();
 
-  const [isEnrolled, setIsEnrolled] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [checkingStatus, setCheckingStatus] = useState(true);
+  const [isEnrolled, setIsEnrolled] = useState(false); // Whether the user is already enrolled
+  const [loading, setLoading] = useState(false);       // Loading state while enrolling
+  const [checkingStatus, setCheckingStatus] = useState(true); // While checking enrollment
 
+  // If user is not logged in or not a student, redirect to login
   useEffect(() => {
     if (!isLoggedIn || user?.role !== 'STUDENT') {
       navigate('/login');
@@ -18,6 +20,7 @@ export default function EnrollButton({ courseId }) {
     }
   }, [isLoggedIn, user, navigate]);
 
+  // Check if the student is already enrolled in this course
   useEffect(() => {
     if (!courseId || !user?.id || !isLoggedIn) {
       setCheckingStatus(false);
@@ -34,33 +37,37 @@ export default function EnrollButton({ courseId }) {
       } catch (err) {
         console.error("Enrollment check failed", err);
       } finally {
-        setCheckingStatus(false);
+        setCheckingStatus(false); // Done checking
       }
     };
 
     checkEnrollment();
   }, [courseId, user, isLoggedIn]);
 
+  // Function to enroll in the course
   const handleEnroll = async () => {
-    setLoading(true);
+    setLoading(true); // Start loading
     try {
       await axios.post('http://localhost:8080/api/enrollments/enroll', {
         studentId: user.id,
         courseId: courseId
       });
       alert('Successfully enrolled!');
-      setIsEnrolled(true);
+      setIsEnrolled(true); // Update state after enrolling
     } catch (error) {
       alert(error.response?.data || 'Enrollment failed');
     } finally {
-      setLoading(false);
+      setLoading(false); // Stop loading
     }
   };
 
+  // If user is not a student, don’t show anything
   if (!isLoggedIn || user?.role !== 'STUDENT') return null;
 
+  // While checking enrollment status
   if (checkingStatus) return <button disabled className="btn btn-light">Checking...</button>;
 
+  // If already enrolled, show "Go to Course" button
   if (isEnrolled) {
     return (
       <button
@@ -72,6 +79,7 @@ export default function EnrollButton({ courseId }) {
     );
   }
 
+  // If not enrolled, show "Enroll" button
   return (
     <button
       onClick={handleEnroll}

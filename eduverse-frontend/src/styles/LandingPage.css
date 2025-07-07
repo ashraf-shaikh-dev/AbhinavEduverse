@@ -1,152 +1,169 @@
-/* LandingPage.css */
+/* Use Poppins font everywhere for a nice, clean look */
 * {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Global page wrapper */
+/* Main container for the landing page */
 .landing-page {
-  font-family: 'Inter', sans-serif;
-  color: #2c2c2c;
-  background-color: #fff;
-  line-height: 1.6;
+  font-family: 'Inter', sans-serif; /* Change font here for the landing page specifically */
+  color: #2c2c2c;                   /* Dark gray text color - easy on the eyes */
+  background-color: #fff;           /* White background */
+  line-height: 1.6;                 /* Space between lines for better readability */
 }
 
-/* Hero Section */
+/* ===== Hero Section ===== */
+/* This is the big banner area with background image and main message */
 .hero {
-  position: relative;
-  height: 85vh;
-  background: url('../assets/banner.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;               /* Allows us to position overlay absolutely */
+  height: 85vh;                    /* Take up 85% of the screen height */
+  background: url('../assets/banner.jpg') center/cover no-repeat; /* Background image centered and covering whole area */
+  display: flex;                   /* Use flexbox to center content vertically and horizontally */
+  align-items: center;             /* Vertical centering */
+  justify-content: center;         /* Horizontal centering */
 }
 
+/* Dark transparent layer on top of the image to make text readable */
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 16px;
-  text-align: center;
-  color: #fff;
-  max-width: 700px;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+  padding: 40px;                      /* Space inside the box */
+  border-radius: 16px;                /* Rounded corners */
+  text-align: center;                 /* Center text */
+  color: #fff;                       /* White text */
+  max-width: 700px;                  /* Limit how wide the overlay can get */
 }
 
+/* Big headline text */
 .hero-title {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;  /* Large font size */
+  font-weight: 700;   /* Bold text */
+  margin-bottom: 1rem; /* Space below */
 }
 
+/* Smaller subtitle below the headline */
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;  /* Smaller than title */
+  margin-bottom: 1.5rem; /* More space below */
 }
 
+/* Button in the hero section */
 .hero-btn {
-  background-color: #ff6b00;
-  color: white;
+  background-color: #ff6b00;   /* Bright orange color */
+  color: white;                /* White text */
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 12px 24px;          /* Top/bottom and left/right padding */
   font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: none;                /* No border */
+  border-radius: 8px;          /* Rounded corners */
+  cursor: pointer;             /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth color change */
 }
 
+/* Darker orange when you hover the button */
 .hero-btn:hover {
   background-color: #e45c00;
 }
 
-/* Features Section */
+/* ===== Features Section ===== */
+/* Section that shows different features or benefits */
 .features-section {
-  padding: 60px 20px;
-  background-color: #f7f7f7;
-  text-align: center;
+  padding: 60px 20px;           /* Space around the section */
+  background-color: #f7f7f7;    /* Light gray background */
+  text-align: center;           /* Center the text */
 }
 
+/* Title of the features section */
 .features-section h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem;          /* Space below the title */
 }
 
+/* Container for all the feature cards */
 .features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  display: flex;                /* Put feature cards in a row */
+  flex-wrap: wrap;              /* Wrap to next line on small screens */
+  justify-content: center;      /* Center all the cards horizontally */
+  gap: 30px;                   /* Space between the cards */
 }
 
+/* Each card showing a feature */
 .feature-card {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  max-width: 280px;
-  flex: 1;
-  text-align: center;
+  background-color: white;      /* White background */
+  padding: 20px;                /* Space inside card */
+  border-radius: 12px;          /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Subtle shadow for 3D effect */
+  max-width: 280px;             /* Maximum width */
+  flex: 1;                     /* Flexible width */
+  text-align: center;           /* Center content inside */
 }
 
+/* Images inside feature cards */
 .feature-card img {
-  height: 120px;
-  
+  height: 120px;                /* Fixed height */
 }
 
+/* Title inside each feature card */
 .feature-card h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;        /* Space below the title */
 }
 
-/* CTA Section */
+/* ===== Call to Action (CTA) Section ===== */
+/* Final section encouraging users to take action */
 .cta-section {
-  background-color: #1e293b;
-  color: white;
-  padding: 60px 20px;
+  background-color: #1e293b;    /* Dark blue background */
+  color: white;                 /* White text */
+  padding: 60px 20px;           /* Space inside */
   text-align: center;
 }
 
+/* Title inside CTA */
 .cta-section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
+/* Paragraph inside CTA */
 .cta-section p {
   font-size: 1.125rem;
   margin-bottom: 2rem;
 }
 
+/* CTA button style */
 .cta-btn {
-  background-color: #3b82f6;
-  width: 280px;
-  color: white;
+  background-color: #3b82f6;   /* Bright blue button */
+  width: 280px;                /* Fixed width */
+  color: white;               /* White text */
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 12px 24px;          /* Space inside */
   font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 8px;          /* Rounded corners */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+/* Darker blue on hover */
 .cta-btn:hover {
   background-color: #2563eb;
 }
 
-/* Responsive tweaks */
+/* ===== Responsive styles ===== */
+/* For medium screens (tablets, small laptops) */
 @media (max-width: 1024px) {
   .overlay {
-    padding: 30px;
-    max-width: 90%;
+    padding: 30px;        /* Less padding */
+    max-width: 90%;       /* More flexible width */
   }
 
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.2rem;    /* Smaller headline */
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.1rem;    /* Smaller subtitle */
   }
 
   .features {
-    gap: 20px;
+    gap: 20px;            /* Less gap between cards */
   }
 
   .feature-card {
@@ -158,90 +175,96 @@
   }
 }
 
+/* For smaller screens (phones, small tablets) */
 @media (max-width: 768px) {
   .hero {
-    height: auto;
-    padding: 60px 20px;
-    background-position: center;
-    background-size: cover;
-    text-align: center;
+    height: auto;         /* Let height grow with content */
+    padding: 60px 20px;   /* Add padding */
+    background-position: center; /* Make sure background stays centered */
+    background-size: cover;      /* Cover the entire area */
+    text-align: center;   /* Center the text */
   }
 
   .overlay {
-    padding: 25px;
-    border-radius: 12px;
+    padding: 25px;        /* Less padding */
+    border-radius: 12px;  /* Slightly smaller rounded corners */
   }
 
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 1.8rem;    /* Smaller title */
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1rem;      /* Smaller subtitle */
   }
 
   .hero-btn {
-    font-size: 0.95rem;
-    padding: 10px 20px;
+    font-size: 0.95rem;   /* Smaller button text */
+    padding: 10px 20px;   /* Smaller button padding */
   }
 
+  /* Stack features vertically */
   .features {
     flex-direction: column;
-    align-items: center;
+    align-items: center;  /* Center horizontally */
   }
 
   .feature-card {
-    width: 90%;
+    width: 90%;           /* Take up most width */
     max-width: 300px;
   }
 
   .cta-section h2 {
-    font-size: 1.7rem;
+    font-size: 1.7rem;    /* Smaller CTA title */
   }
 
   .cta-section p {
-    font-size: 1rem;
+    font-size: 1rem;      /* Smaller paragraph */
   }
 
   .cta-btn {
     font-size: 1rem;
-    width: 100%;
+    width: 100%;          /* Full width button */
     max-width: 260px;
   }
 }
 
+/* For very small screens (small phones) */
 @media (max-width: 480px) {
   .overlay {
-    padding: 20px;
+    padding: 20px;        /* Even less padding */
   }
 
   .hero-title {
-    font-size: 1.6rem;
+    font-size: 1.6rem;    /* Smaller title */
   }
 
   .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.95rem;   /* Smaller subtitle */
   }
 
+  /* Buttons full width and smaller */
   .hero-btn,
   .cta-btn {
     font-size: 0.9rem;
     padding: 10px 18px;
-    width: 100%;
+    width: 100%;          /* Full width buttons */
   }
 
   .features-section {
-    padding: 40px 15px;
+    padding: 40px 15px;   /* Smaller padding */
   }
 
   .cta-section {
     padding: 40px 15px;
   }
 
+  /* Smaller images in feature cards */
   .feature-card img {
     height: 100px;
   }
 
+  /* Smaller headings and paragraphs */
   .feature-card h3 {
     font-size: 1.1rem;
   }
@@ -250,4 +273,3 @@
     font-size: 0.95rem;
   }
 }
-

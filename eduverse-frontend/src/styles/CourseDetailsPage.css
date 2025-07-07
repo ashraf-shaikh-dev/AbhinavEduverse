@@ -1,97 +1,97 @@
 .course-details-page {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  font-family: 'Poppins', sans-serif;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  color: #1c1d1f;
+  max-width: 800px;                   /* Limit the page width for better reading */
+  margin: 2rem auto;                  /* Center horizontally with vertical spacing */
+  padding: 2rem;                     /* Space inside the container */
+  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  background: #fff;                  /* White background */
+  border-radius: 14px;              /* Rounded corners */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+  color: #1c1d1f;                  /* Dark text color */
 }
 
 .course-details-page h1 {
-  font-size: 2.3rem;
-  margin-bottom: 1rem;
-  color: #1f2937;
-  text-align: center;
+  font-size: 2.3rem;                /* Big heading size */
+  margin-bottom: 1rem;             /* Space below heading */
+  color: #1f2937;                  /* Dark blue-gray color */
+  text-align: center;              /* Center the title */
 }
 
 .course-details-page img {
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  margin: 0 auto 1.5rem auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
+  display: block;                  /* Make image a block element */
+  width: 100%;                    /* Full width, but limited below */
+  max-width: 600px;               /* Max width so it doesn’t get too big */
+  height: auto;                   /* Keep aspect ratio */
+  margin: 0 auto 1.5rem auto;    /* Center image, with bottom margin */
+  border-radius: 12px;            /* Rounded corners on image */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Light shadow */
+  object-fit: cover;             /* Cover the area nicely */
 }
 
 .course-details-page p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  color: #444;
+  font-size: 1.1rem;              /* Comfortable reading size */
+  line-height: 1.7;              /* Spacing between lines */
+  margin-bottom: 1.5rem;          /* Space below paragraphs */
+  color: #444;                   /* Medium dark text */
 }
 
 .course-details-page p:last-of-type {
-  font-weight: 600;
-  color: #2a6ebb;
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  text-align: center;
+  font-weight: 600;              /* Bold text */
+  color: #2a6ebb;               /* Bright blue for emphasis */
+  font-size: 1.2rem;            /* Slightly bigger font */
+  margin-bottom: 2rem;          /* Extra space below */
+  text-align: center;           /* Center aligned */
 }
 
 .enroll-btn, button.enroll-btn {
-  display: block;
-  width: 220px;
-  margin: 0 auto;
-  background-color: #2a6ebb;
-  color: white;
-  font-size: 1.05rem;
-  font-weight: 600;
-  padding: 12px 0;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 5px 14px rgba(42, 110, 187, 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: block;               /* Button as block element */
+  width: 220px;                /* Fixed width for consistency */
+  margin: 0 auto;             /* Center horizontally */
+  background-color: #2a6ebb;  /* Bright blue background */
+  color: white;               /* White text */
+  font-size: 1.05rem;         /* Medium text size */
+  font-weight: 600;           /* Semi-bold text */
+  padding: 12px 0;            /* Padding top & bottom */
+  border: none;               /* No border */
+  border-radius: 30px;        /* Rounded pill shape */
+  cursor: pointer;            /* Pointer cursor on hover */
+  box-shadow: 0 5px 14px rgba(42, 110, 187, 0.4); /* Soft shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover */
 }
 
 .enroll-btn:hover, button.enroll-btn:hover {
-  background-color: #1e88e5;
-  box-shadow: 0 8px 24px rgba(30, 136, 229, 0.5);
+  background-color: #1e88e5;  /* Darker blue on hover */
+  box-shadow: 0 8px 24px rgba(30, 136, 229, 0.5); /* Stronger shadow */
 }
 
 .enroll-btn:disabled, button.enroll-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  box-shadow: none;
+  background-color: #ccc;      /* Gray background when disabled */
+  cursor: not-allowed;        /* Disabled cursor */
+  box-shadow: none;           /* No shadow */
 }
 
 .course-description {
-  white-space: pre-wrap;
-  font-family: inherit;
-  line-height: 1.6;
-  color: #333;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 1rem 0;
+  white-space: pre-wrap;      /* Preserve whitespace and line breaks */
+  font-family: inherit;       /* Use inherited font */
+  line-height: 1.6;           /* Line spacing */
+  color: #333;                /* Dark gray text */
+  background: none;           /* Transparent background */
+  border: none;               /* No border */
+  padding: 0;                 /* No padding */
+  margin: 1rem 0;             /* Vertical margin */
 }
 
-/* Responsive */
+/* Responsive styles for small screens */
 @media (max-width: 600px) {
   .course-details-page {
-    padding: 1.25rem;
-    margin: 1rem;
+    padding: 1.25rem;         /* Less padding on mobile */
+    margin: 1rem;             /* Less margin on mobile */
   }
 
   .course-details-page h1 {
-    font-size: 1.75rem;
+    font-size: 1.75rem;       /* Smaller heading */
   }
 
   .enroll-btn {
-    width: 100%;
+    width: 100%;              /* Full width button on small screens */
   }
 }

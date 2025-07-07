@@ -1,73 +1,85 @@
+/* Use Poppins font for all elements */
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+/* Container wrapping the create course form */
 .create-course-container {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;               /* Limit width for readability */
+  margin: 2rem auto;              /* Center horizontally with vertical spacing */
+  padding: 2rem;                  /* Inner spacing */
+  background-color: #f9f9f9;      /* Light gray background */
+  border-radius: 8px;             /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for subtle depth */
 }
 
+/* Title inside the container */
 .create-course-container h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #333;
+  text-align: center;             /* Centered text */
+  margin-bottom: 1.5rem;          /* Space below heading */
+  color: #333;                   /* Dark gray text */
 }
 
+/* The form itself uses flex layout with vertical stacking */
 .create-course-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;         /* Stack inputs vertically */
 }
 
+/* Labels above each input */
 .create-course-form label {
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-  color: #555;
+  margin-bottom: 0.3rem;          /* Space below label */
+  font-weight: 600;               /* Slightly bold */
+  color: #555;                   /* Medium gray */
 }
 
+/* Text inputs and textarea styling */
 .create-course-form input[type="text"],
 .create-course-form input[type="email"],
 .create-course-form textarea {
-  padding: 0.6rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  resize: vertical;
-  transition: border-color 0.3s ease;
+  padding: 0.6rem;                /* Inner padding for comfort */
+  margin-bottom: 1rem;            /* Space below each input */
+  border: 1px solid #ccc;         /* Light gray border */
+  border-radius: 4px;             /* Rounded corners */
+  font-size: 1rem;                /* Comfortable font size */
+  resize: vertical;               /* Textarea can only resize vertically */
+  transition: border-color 0.3s ease; /* Smooth border color change on focus */
 }
 
+/* Highlight border when input/textarea is focused */
 .create-course-form input[type="text"]:focus,
 .create-course-form textarea:focus {
-  border-color: #007bff;
-  outline: none;
+  border-color: #007bff;          /* Bright blue border on focus */
+  outline: none;                  /* Remove default outline */
 }
 
+/* Error message text styling */
 .error-text {
-  color: #d9534f;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
+  color: #d9534f;                 /* Bootstrap's danger red */
+  font-weight: 600;               /* Bold for emphasis */
+  margin-bottom: 1rem;            /* Space below error message */
+  text-align: center;             /* Centered text */
 }
 
+/* Submit button styling */
 .submit-btn {
-  padding: 0.7rem;
-  font-size: 1.1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 0.7rem;                /* Comfortable button padding */
+  font-size: 1.1rem;              /* Slightly larger font */
+  background-color: #007bff;      /* Bootstrap primary blue */
+  color: white;                   /* White text */
+  border: none;                  /* Remove default border */
+  border-radius: 5px;             /* Rounded corners */
+  cursor: pointer;                /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background change */
 }
 
+/* Darker blue on hover, but only if button is enabled */
 .submit-btn:hover:not(:disabled) {
   background-color: #0056b3;
 }
 
+/* Disabled button styling */
 .submit-btn:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
+  background-color: #6c757d;      /* Gray background */
+  cursor: not-allowed;            /* Not allowed cursor */
 }

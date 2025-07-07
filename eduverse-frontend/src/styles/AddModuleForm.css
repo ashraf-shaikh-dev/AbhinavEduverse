@@ -1,71 +1,71 @@
 .add-module-form {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  font-family: 'Poppins', sans-serif;
-  color: #1c1d1f;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  max-width: 700px;                   /* Limit form width for better readability */
+  margin: 2rem auto;                  /* Center form horizontally with vertical spacing */
+  padding: 2rem;                     /* Space inside form around content */
+  background: #fff;                   /* White background for clean look */
+  border-radius: 14px;               /* Rounded corners for smooth edges */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Soft shadow for depth */
+  font-family: 'Poppins', sans-serif; /* Modern, readable font */
+  color: #1c1d1f;                   /* Dark text color */
+  display: flex;                    /* Use flexbox for layout */
+  flex-direction: column;           /* Stack elements vertically */
+  gap: 1.25rem;                    /* Space between form elements */
 }
 
 .add-module-form input[type="text"],
 .add-module-form textarea {
-  font-size: 1rem;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid #ccc;
-  border-radius: 8px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  resize: vertical;
-  font-family: inherit;
+  font-size: 1rem;                  /* Comfortable font size */
+  padding: 0.75rem 1rem;            /* Space inside inputs for easy typing */
+  border: 1.5px solid #ccc;         /* Light gray border */
+  border-radius: 8px;               /* Rounded edges on inputs */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover/focus effect */
+  resize: vertical;                 /* Textarea can be resized vertically only */
+  font-family: inherit;             /* Match font with form */
 }
 
 .add-module-form input[type="text"]:focus,
 .add-module-form textarea:focus {
-  border-color: #2a6ebb;
-  box-shadow: 0 0 6px rgba(42, 110, 187, 0.25);
-  outline: none;
+  border-color: #2a6ebb;            /* Blue border on focus for visibility */
+  box-shadow: 0 0 6px rgba(42,110,187,0.25); /* Subtle glow on focus */
+  outline: none;                   /* Remove default browser outline */
 }
 
 .add-module-form textarea {
-  min-height: 120px;
+  min-height: 120px;               /* Ensure textarea is tall enough */
 }
 
 .add-module-form button {
-  align-self: flex-start;
-  background-color: #2a6ebb;
-  color: white;
-  border: none;
-  padding: 0.7rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.25s ease;
-  box-shadow: 0 4px 14px rgba(42, 110, 187, 0.3);
+  align-self: flex-start;          /* Align button to the left */
+  background-color: #2a6ebb;       /* Blue button background */
+  color: white;                    /* White text */
+  border: none;                   /* No border */
+  padding: 0.7rem 2rem;            /* Comfortable padding */
+  border-radius: 8px;              /* Rounded button edges */
+  font-size: 1rem;                 /* Button text size */
+  font-weight: 600;                /* Semi-bold text */
+  cursor: pointer;                /* Pointer cursor on hover */
+  transition: background-color 0.25s ease; /* Smooth hover color change */
+  box-shadow: 0 4px 14px rgba(42,110,187,0.3); /* Soft shadow for button depth */
 }
 
 .add-module-form button:hover {
-  background-color: #1e88e5;
+  background-color: #1e88e5;       /* Darker blue on hover */
 }
 
 .add-module-form button:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(42, 110, 187, 0.3);
+  outline: none;                   /* Remove default focus outline */
+  box-shadow: 0 0 0 4px rgba(42,110,187,0.3); /* Blue glow on focus */
 }
 
-/* Responsive */
+/* Responsive adjustments for small screens */
 @media (max-width: 600px) {
   .add-module-form {
-    margin: 1rem;
-    padding: 1.5rem;
+    margin: 1rem;                 /* Smaller margin on mobile */
+    padding: 1.5rem;              /* Smaller padding */
   }
 
   .add-module-form button {
-    width: 100%;
-    padding: 0.8rem;
+    width: 100%;                 /* Full width button on mobile */
+    padding: 0.8rem;             /* Slightly bigger padding for easier tap */
   }
 }

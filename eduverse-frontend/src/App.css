@@ -1,41 +1,49 @@
+/* Use Poppins font for the whole app */
 * {
   font-family: 'Poppins', sans-serif;
 }
-  .App {
-  text-align: center;
+
+/* Main app container */
+.App {
+  text-align: center;  /* Center all text horizontally */
 }
 
+/* App logo image */
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 40vmin;      /* Responsive height relative to viewport */
+  pointer-events: none; /* Prevent user interactions like clicks */
 }
 
+/* Only animate logo if user hasn't requested reduced motion */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear; /* Spin animation infinitely, slow */
   }
 }
 
+/* Header container styling */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34; /* Dark background */
+  min-height: 100vh;         /* Full viewport height */
+  display: flex;             /* Use flexbox */
+  flex-direction: column;    /* Stack children vertically */
+  align-items: center;       /* Center children horizontally */
+  justify-content: center;   /* Center children vertically */
+  font-size: calc(10px + 2vmin); /* Responsive font size */
+  color: white;              /* White text color */
 }
 
+/* Link inside the app */
 .App-link {
-  color: #61dafb;
+  color: #61dafb;            /* Bright blue color for links */
 }
 
+/* Define the spinning animation for the logo */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg);  /* Start rotation */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Full spin */
   }
 }

@@ -1,131 +1,141 @@
-/* TeacherDashboard.css */
+/* Apply Poppins font globally */
 * {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Root dashboard layout */
+/* Main dashboard container */
 .teacher-dashboard {
-  padding: 2rem;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #f7f8fc, #eef1f5);
-  min-height: 100vh;
+  padding: 2rem;  /* Add space inside the container */
+  font-family: 'Segoe UI', sans-serif;  /* Override font for dashboard */
+  background: linear-gradient(to bottom right, #f7f8fc, #eef1f5);  /* Light gradient background */
+  min-height: 100vh;  /* Make dashboard fill full viewport height */
 }
 
-/* Header section with welcome + logout */
+/* Header with welcome message and logout button */
 .dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
+  display: flex;                /* Use flexbox for layout */
+  justify-content: space-between;  /* Space between left and right items */
+  align-items: center;          /* Vertically center items */
+  flex-wrap: wrap;              /* Wrap on smaller screens */
+  margin-bottom: 2rem;          /* Space below header */
 }
 
+/* Header title */
 .dashboard-header h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #333;
+  font-size: 2rem;              /* Large font */
+  font-weight: 600;             /* Semi-bold */
+  color: #333;                  /* Dark gray color */
 }
 
+/* Logout button style */
 .logout-btn {
-  padding: 0.6rem 1.2rem;
-  background-color: #ff5757;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 0.6rem 1.2rem;       /* Padding inside button */
+  background-color: #ff5757;    /* Bright red background */
+  color: white;                 /* White text */
+  border: none;                 /* No border */
+  border-radius: 8px;           /* Rounded corners */
+  font-weight: 500;             /* Medium weight */
+  cursor: pointer;              /* Pointer cursor on hover */
+  transition: background-color 0.3s ease;  /* Smooth background change */
 }
 
+/* Logout button hover effect */
 .logout-btn:hover {
-  background-color: #e84242;
+  background-color: #e84242;    /* Darker red on hover */
 }
 
-/* Section title */
+/* Section titles (like "My Courses") */
 h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #444;
+  font-size: 1.5rem;            /* Medium-large font */
+  margin-bottom: 1rem;          /* Space below title */
+  color: #444;                  /* Medium gray */
 }
 
-/* Grid of course cards */
+/* Grid layout for course cards */
 .courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.5rem;
+  display: grid;                /* CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Responsive columns */
+  gap: 1.5rem;                  /* Space between cards */
 }
 
-/* Individual course card */
+/* Single course card style */
 .course-card {
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background-color: white;      /* White background */
+  border-radius: 16px;          /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);  /* Soft shadow */
+  padding: 1.5rem;              /* Padding inside card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth hover effects */
+  display: flex;                /* Flex container */
+  flex-direction: column;       /* Vertical layout */
+  justify-content: space-between; /* Space between content vertically */
 }
 
+/* Card hover effect */
 .course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);  /* Lift card slightly */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);  /* Stronger shadow */
 }
 
+/* Course title inside card */
 .course-card h3 {
-  font-size: 1.2rem;
-  color: #222;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;            /* Slightly larger text */
+  color: #222;                  /* Dark text */
+  margin-bottom: 0.5rem;        /* Space below */
 }
 
+/* Course description text */
 .course-card p {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  color: #666;                  /* Medium gray */
+  font-size: 0.95rem;           /* Slightly smaller font */
+  margin-bottom: 1rem;          /* Space below paragraph */
 }
 
+/* Course image styling */
 .course-image {
-  width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  width: 100%;                  /* Full width */
+  max-height: 100%;             /* Limit max height */
+  object-fit: cover;            /* Crop and fill */
+  border-radius: 10px;          /* Rounded edges */
+  margin-bottom: 1rem;          /* Space below image */
 }
 
-/* Manage Course button */
+/* Button for managing a course */
 .manage-btn {
-  background-color: #4a90e2;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  font-size: 0.9rem;
-  border-radius: 6px;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: background-color 0.3s ease;
+  background-color: #4a90e2;    /* Bright blue */
+  color: white;                 /* White text */
+  padding: 0.5rem 1rem;         /* Padding */
+  border: none;                 /* No border */
+  font-size: 0.9rem;            /* Smaller font */
+  border-radius: 6px;           /* Rounded corners */
+  cursor: pointer;              /* Pointer on hover */
+  align-self: flex-start;       /* Align button left inside flex container */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
+/* Hover effect on manage button */
 .manage-btn:hover {
-  background-color: #357acc;
+  background-color: #357acc;    /* Darker blue */
 }
 
-/* Error text */
+/* Error message styling */
 .error-text {
-  color: #d8000c;
-  background-color: #ffd2d2;
-  padding: 0.5rem;
-  border-radius: 8px;
-  margin-top: 1rem;
+  color: #d8000c;               /* Bright red text */
+  background-color: #ffd2d2;    /* Light red background */
+  padding: 0.5rem;              /* Padding */
+  border-radius: 8px;           /* Rounded corners */
+  margin-top: 1rem;             /* Space above */
 }
 
-/* Responsive tweaks */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
+  /* Stack header items vertically on small screens */
   .dashboard-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
 
+  /* Make grid single-column on mobile */
   .courses-grid {
     grid-template-columns: 1fr;
   }
