@@ -16,35 +16,38 @@ import com.abhinav.eduverse.service.ModuleProgressService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-@RestController
-@RequestMapping("/api/progress/")
-@CrossOrigin(origins = "*")
+@RestController  // Marks this as a REST controller for handling HTTP requests
+@RequestMapping("/api/progress/")  // Base URL path for all module progress-related APIs
+@CrossOrigin(origins = "*")  // Allow requests from any origin (frontend communication)
 public class ModuleProgressController {
 	
+	// Injecting ModuleProgressService to handle business logic
 	@Autowired
 	private ModuleProgressService moduleProgressService;
 	
-	// API to update module progress
+	// POST API to update module progress (e.g. saving current progress of a student in a module)
 	@PostMapping("/update")
 	public ModuleProgress update(@RequestBody ModuleProgressDTO moduleProgressDTO) {
-		return moduleProgressService.updateProgress(moduleProgressDTO);
+		return moduleProgressService.updateProgress(moduleProgressDTO);  // Delegate update to service
 	}
 	
+	// POST API to mark a module as complete for a student
 	@PostMapping("/complete")
     public ResponseEntity<?> markModuleComplete(@RequestBody ModuleProgressDTO dto) {
         try {
-            ModuleProgress progress = moduleProgressService.updateProgress(dto);
-            return ResponseEntity.ok(progress);
+            ModuleProgress progress = moduleProgressService.updateProgress(dto); // Update progress to completed
+            return ResponseEntity.ok(progress);  // Return success response with updated progress
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());  // Return error message if update fails
         }
     }
+	
+	// GET API to fetch all module progress for a student in a specific course
 	@GetMapping("/student/{studentId}/course/{courseId}")
     public List<ModuleProgressDTO> getModuleProgressForStudentCourse(
-            @PathVariable Long studentId,
-            @PathVariable Long courseId) {
-        return moduleProgressService.getProgressByStudentAndCourse(studentId, courseId);
+            @PathVariable Long studentId,  // Student's ID in path variable
+            @PathVariable Long courseId) {  // Course ID in path variable
+        return moduleProgressService.getProgressByStudentAndCourse(studentId, courseId);  // Return progress list
     }
 
 }

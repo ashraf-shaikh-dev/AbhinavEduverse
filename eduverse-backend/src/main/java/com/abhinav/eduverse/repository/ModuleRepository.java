@@ -8,7 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.abhinav.eduverse.model.Module;
 
 @Repository
-public interface ModuleRepository extends JpaRepository<Module, Long>{
-	List<Module> findByCourseId(Long courseId);
-	List<Module> findByCourseIdOrderByModuleOrderAsc(Long courseId);
+public interface ModuleRepository extends JpaRepository<Module, Long> {
+
+    // Get all modules for a specific course
+    List<Module> findByCourseId(Long courseId);
+
+    // Get all modules for a course sorted by module order (ascending)
+    List<Module> findByCourseIdOrderByModuleOrderAsc(Long courseId);
 }

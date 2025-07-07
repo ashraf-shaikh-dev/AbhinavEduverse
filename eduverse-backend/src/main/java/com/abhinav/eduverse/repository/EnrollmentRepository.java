@@ -13,18 +13,18 @@ import com.abhinav.eduverse.model.Enrollment;
 import com.abhinav.eduverse.model.User;
 
 @Repository
-public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
-	
-	// Checks id student is already enrolled in course
-	Optional<Enrollment> findByStudentAndCourse(User student, Course course);
-	
-	
-	boolean existsByStudentAndCourse(User student, Course course);
+public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
 
+    // Check if student is already enrolled in a course
+    Optional<Enrollment> findByStudentAndCourse(User student, Course course);
 
-	@Query("SELECT e.student FROM Enrollment e WHERE e.course.id = :courseId")
-	List<User> findUsersByCourseId(@Param("courseId") Long courseId);
+    // Returns true if student is already enrolled
+    boolean existsByStudentAndCourse(User student, Course course);
 
-	List<Enrollment> findByStudentId(Long studentId);
+    // Get list of users enrolled in a course using courseId
+    @Query("SELECT e.student FROM Enrollment e WHERE e.course.id = :courseId")
+    List<User> findUsersByCourseId(@Param("courseId") Long courseId);
 
+    // Get all enrollments of a specific student
+    List<Enrollment> findByStudentId(Long studentId);
 }

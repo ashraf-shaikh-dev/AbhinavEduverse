@@ -1,21 +1,22 @@
 package com.abhinav.eduverse.dto;
 
+// Data Transfer Object for Course
+// Used to transfer course data between backend and frontend without exposing entity details
 public class CourseDTO {
-	private Long id;
-	private String title;
-	private String description;
-	private String thumbnailUrl;
-	private Long teacherId;
-	private int totalModules;
-	private int enrolledStudents;
+	
+	private Long id;               // Unique identifier of the course
+	private String title;          // Title of the course
+	private String description;    // Description of the course
+	private String thumbnailUrl;   // URL for the course thumbnail image
+	private Long teacherId;        // ID of the teacher who created the course
+	private int totalModules;      // Total number of modules in the course
+	private int enrolledStudents;  // Number of students enrolled in the course
 
-	// Default Constructor
-
+	// Default constructor - required for frameworks and serialization
 	public CourseDTO() {
 	}
 
-	// Constructor with arguments
-
+	// Constructor with parameters for quick creation of CourseDTO object
 	public CourseDTO(String title, String description, String thumbnailUrl, Long teacherId, int totalModules) {
 		super();
 		this.title = title;
@@ -25,8 +26,8 @@ public class CourseDTO {
 		this.totalModules = totalModules;
 	}
 
-	// Getters and Setters
-
+	// Getters and Setters for all fields to access and modify private variables
+	
 	public int getTotalModules() {
 		return totalModules;
 	}

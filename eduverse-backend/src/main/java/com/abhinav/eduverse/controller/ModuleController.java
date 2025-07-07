@@ -18,34 +18,38 @@ import com.abhinav.eduverse.dto.ModuleDTO;
 import com.abhinav.eduverse.model.Module;
 import java.util.List;
 
-@RestController
-@RequestMapping("api/modules")
-@CrossOrigin(origins = "*")
+@RestController  // Marks this class as a REST controller to handle HTTP requests
+@RequestMapping("api/modules")  // Base URL path for all module related endpoints
+@CrossOrigin(origins = "*")  // Allows requests from any origin (for frontend-backend communication)
 public class ModuleController {
 
-	@Autowired
-	private ModuleService moduleService;
+    // Injecting ModuleService to delegate business logic
+    @Autowired
+    private ModuleService moduleService;
 
-	@PostMapping("/create")
-	public Module postMethodName(@RequestBody ModuleDTO moduleDTO) {
-		System.out.println("Received module: " + moduleDTO);
-		return moduleService.addModule(moduleDTO);
-	}
+    // POST request to create a new module using data from request body
+    @PostMapping("/create")
+    public Module postMethodName(@RequestBody ModuleDTO moduleDTO) {
+        System.out.println("Received module: " + moduleDTO);  // Logging received module DTO for debugging
+        return moduleService.addModule(moduleDTO);  // Delegates module creation to service and returns the created module
+    }
 
-	@GetMapping("/course/{courseId}")
-	public List<Module> getModulesByCourse(@PathVariable Long courseId) {
-		return moduleService.getModulesByCourseId(courseId);
-	}
+    // GET request to get all modules belonging to a specific course
+    @GetMapping("/course/{courseId}")
+    public List<Module> getModulesByCourse(@PathVariable Long courseId) {
+        return moduleService.getModulesByCourseId(courseId);  // Calls service to fetch modules by course ID
+    }
 
-	@PutMapping("/{id}")
-	public Module updateModule(@PathVariable Long id, @RequestBody Module updatedModule) {
-		return moduleService.updateModule(id, updatedModule);
-	}
+    // PUT request to update an existing module by ID with data from request body
+    @PutMapping("/{id}")
+    public Module updateModule(@PathVariable Long id, @RequestBody Module updatedModule) {
+        return moduleService.updateModule(id, updatedModule);  // Delegate update operation to service
+    }
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteModule(@PathVariable("id") Long moduleId) {
-		moduleService.deleteModule(moduleId);
-		return ResponseEntity.noContent().build();
-	}
-
+    // DELETE request to delete a module by its ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteModule(@PathVariable("id") Long moduleId) {
+        moduleService.deleteModule(moduleId);  // Calls service to delete the module
+        return ResponseEntity.noContent().build();  // Return 204 No Content response to indicate successful deletion
+    }
 }

@@ -8,10 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.abhinav.eduverse.model.Course;
 
 @Repository
-public interface CourseRepository  extends JpaRepository<Course, Long>{
-	
-	// To retrieve the courses only created by that specific teacher
-	
-	List<Course> findByTeacherId(Long teacherId);
+public interface CourseRepository extends JpaRepository<Course, Long> {
 
+    // Get all courses created by a specific teacher
+    List<Course> findByTeacherId(Long teacherId);
 }

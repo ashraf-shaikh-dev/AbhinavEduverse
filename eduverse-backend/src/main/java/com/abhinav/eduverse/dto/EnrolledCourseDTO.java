@@ -1,21 +1,23 @@
 package com.abhinav.eduverse.dto;
 
+// DTO to represent a course that a student is enrolled in,
+// along with progress details to show how much the student has completed.
 public class EnrolledCourseDTO {
 
-    private Long courseId;
-    private String title;
-    private String description;
-    private String thumbnailUrl;
+    private Long courseId;          // ID of the course
+    private String title;           // Title of the course
+    private String description;     // Description of the course
+    private String thumbnailUrl;    // URL of the course thumbnail image
 
-    private int totalModules;
-    private int completedModules;
+    private int totalModules;       // Total number of modules in the course
+    private int completedModules;   // Number of modules the student has completed
 
-    private double progress;  
+    private double progress;        // Progress percentage (e.g., 75.0 for 75%)
 
-    // Default constructor
+    // Default no-args constructor (needed by frameworks)
     public EnrolledCourseDTO() {}
 
-    // Constructor with all fields
+    // Constructor to quickly create an instance with all data
     public EnrolledCourseDTO(Long courseId, String title, String description, String thumbnailUrl,
                              int totalModules, int completedModules, double progress) {
         this.courseId = courseId;
@@ -27,9 +29,7 @@ public class EnrolledCourseDTO {
         this.progress = progress;
     }
     
-
-    // Getters and setters
-    
+    // Getters and setters for all fields - allow reading and modifying values
 
 	public Long getCourseId() {
 		return courseId;

@@ -14,36 +14,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-
-
 @Entity
-@Table(name = "users")
-
+@Table(name = "users") // Maps this class to the "users" table in the database
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generates unique IDs for users
 	private long id;
+	
 	private String firstName;
 	private String lastName;
 	
-	//Email should be unique for each user
-	
+	// Email must be unique, so no two users can register with the same email
 	@Column(unique = true)
 	private String email;
+	
 	private String password;
+	
+	// Role defines if user is STUDENT, TEACHER or ADMIN (stored as string in DB)
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
-	
-	// One user can have multiple enrollments
-	
+	// One user can have many enrollments (a list of courses the user is enrolled in)
 	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
 	private List<Enrollment> enrollments = new ArrayList<>();
 	
-	
-	// Getters and setters
-	
+	// Getters and setters for all fields below
+
 	public long getId() {
 		return id;
 	}
@@ -81,7 +78,7 @@ public class User {
 		this.role = role;
 	}
 	
-	//Constructor with arguments
+	// Constructor with all fields - useful to create user objects easily
 	public User(long id, String firstName, String lastName, String email, String password, Role role) {
 		super();
 		this.id = id;
@@ -92,15 +89,8 @@ public class User {
 		this.role = role;
 	}
 	
-	//Default constructor
-	
+	// Default constructor needed by JPA and for creating empty User objects
 	public User() {
 		super();
 	}
-	
-	
-	
-	
-
-	
 }
