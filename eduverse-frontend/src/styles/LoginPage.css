@@ -1,0 +1,93 @@
+/* LoginPage.css */
+
+.container {
+  max-width: 400px;
+  margin: 5vh auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+button {
+  padding: 12px 16px;
+  background-color: #3b82f6;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+.error-text {
+  color: #e11d48;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+p a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .container {
+    margin: 4rem 1rem;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input,
+  button {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+}
