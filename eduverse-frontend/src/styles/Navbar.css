@@ -9,7 +9,7 @@
   color: #333; /* Dark text */
   display: flex; /* Flexbox layout */
   justify-content: space-between; /* Space between brand and links */
-  padding: 1rem 2rem; /* Padding inside navbar */
+  padding: 0.7rem 2rem; /* Padding inside navbar */
   align-items: center; /* Vertically center items */
   border-bottom: 1px solid #eaeaea; /* Light bottom border */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
@@ -19,6 +19,19 @@
 }
 
 /* Brand / Logo styling */
+.navbar-brand {
+  display: flex; /* Horizontal layout */
+  align-items: center; /* Center items vertically */
+  gap: 0.75rem; /* Space between logo and brand text */
+}
+
+.navbar-brand img {
+  height: 40px; /* Logo height */
+  width: 40px; /* Logo width */
+  object-fit: contain; /* Keep logo ratio */
+}
+
+/* Brand text styling */
 .navbar-brand a {
   color: #007bff; /* Blue text */
   text-decoration: none; /* Remove underline */
@@ -82,6 +95,8 @@
     display: block;
     font-size: 2rem; /* Big hamburger icon */
     color: #007bff; /* Blue */
+    background: none;
+    border: none;
     cursor: pointer;
     z-index: 1100; /* Above navbar */
   }

@@ -88,6 +88,7 @@ export default function Navbar() {
     <nav className="navbar">
       {/* Logo or brand */}
       <div className="navbar-brand">
+        <Link to="/" onClick={closeMenu}><img src="/logo.png" alt=""/></Link>
         <Link to="/" onClick={closeMenu}>Abhinav-Eduverse</Link>
       </div>
 
